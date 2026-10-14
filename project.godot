@@ -30,6 +30,7 @@ TransitionManager="*res://scenes/transition_manager.tscn"
 HoverTooltip="*uid://btawowwfwdk0w"
 Signals="*uid://8s4e7ylqsryj"
 Explosions="*uid://cpx2awxp5s3gv"
+_Card="*uid://bq1rww14eax40"
 
 [display]
 
