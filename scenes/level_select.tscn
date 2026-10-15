@@ -12,7 +12,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p0wlc")
 
-[node name="big bad guy" type="Button" parent="." unique_id=1136336530]
+[node name="map" type="Control" parent="." unique_id=1277149215]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="big bad guy" type="Button" parent="map" unique_id=1136336530]
 layout_mode = 0
 offset_left = 579.0
 offset_top = 24.0
