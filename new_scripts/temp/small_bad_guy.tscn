@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://duds1vu28ckro"]
+
+[node name="small bad guy" type="Button" unique_id=1299200072]
+offset_right = 77.0
+offset_bottom = 82.0
+text = "bad guy"
