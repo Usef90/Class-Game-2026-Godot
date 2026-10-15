@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwav05vq47c6p"]
 
 [ext_resource type="Script" uid="uid://dx45bq1eq6f25" path="res://level_select2.0.gd" id="1_p0wlc"]
+[ext_resource type="Script" uid="uid://74gx5c2wsn1n" path="res://new_scripts/temp/small_bad_guy.gd" id="2_p0wlc"]
 
 [node name="LevelSelect" type="Control" unique_id=867965322]
 layout_mode = 3
@@ -19,3 +20,5 @@ offset_right = 663.0
 offset_bottom = 103.0
 button_mask = 5
 text = "final boss"
+script = ExtResource("2_p0wlc")
+final_boss = true
