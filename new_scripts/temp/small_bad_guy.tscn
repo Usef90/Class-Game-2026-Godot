@@ -7,3 +7,5 @@ offset_right = 77.0
 offset_bottom = 82.0
 text = "bad guy"
 script = ExtResource("1_5c7f5")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

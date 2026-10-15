@@ -9,4 +9,5 @@ var layer = 0
 
 
 func _on_button_down() -> void:
-	pass # Replace with function body.
+	print(layer)
+	get_tree().change_scene_to_file("res://scenes/final.tscn")

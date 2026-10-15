@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ckudr8chj1kgo"]
 
-[ext_resource type="Script" uid="uid://bxugqnugtnuf1" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bpp8nf463r3ow" path="res://Art/burger buns.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://bdngecq5euxf0" path="res://Art/damn.png" id="1_bwjto"]
 [ext_resource type="PackedScene" uid="uid://ctnf6wjt5kuvb" path="res://player_stats.tscn" id="3_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bons014fxsklb" path="res://status_effect_parent.tscn" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://ffwedmd5ilrp" path="res://Art/animation/poison.png" id="5_2hs0m"]
@@ -855,10 +854,10 @@ animations = [{
 }]
 
 [node name="player_sprites" type="Node2D" unique_id=294404824]
-script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=791465314]
-texture = ExtResource("2_hqtel")
+position = Vector2(-2, 0)
+texture = ExtResource("1_bwjto")
 
 [node name="toppings_group" type="Node2D" parent="." unique_id=472185844]
 position = Vector2(0, 32)
