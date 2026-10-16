@@ -4,7 +4,7 @@ extends Button
 
 @export var next_level_paths: Array[NodePath] = []
 
-var next_level:Array = []
+@export var next_level:Array = []
 @export var layer:int
 
 
@@ -13,15 +13,15 @@ func _ready() -> void:
 		owner = get_parent()
 	
 	_load_connections()
-	
-	print(next_level_paths)
-	print(name)
 	queue_redraw()
 
 func _load_connections() -> void:
 	next_level.clear()
 	for path in next_level_paths:
 		var target = get_node_or_null(path)
+		if not target and get_parent():
+			target = get_parent().get_node_or_null(path)
+			
 		if target:
 			next_level.append(target)
 
@@ -40,6 +40,11 @@ func _draw() -> void:
 		draw_line(line_start, line_end, Color.BLACK, 5, true)
 
 func _on_button_down() -> void:
-	if Globals.level != layer:
+	if self.name not in Globals.level_current_next_levels:
 		return
+	var next_level_names = []
+	for node in next_level:
+		next_level_names.append(node.name)
+			
+	Globals.level_current_next_levels = next_level_names
 	get_tree().change_scene_to_file("res://scenes/final.tscn")

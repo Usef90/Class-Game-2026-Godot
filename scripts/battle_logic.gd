@@ -115,7 +115,6 @@ func _check_victory():
 	if enemy_list.get_child_count()  == 0 and !victory and !ending_of_story:
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
-		Globals.level += 1
 		victory_gold += int(PlayerStats.luck/5)
 		PlayerStats.player_gold +=  victory_gold
 		victory_panel.show()
@@ -124,7 +123,6 @@ func _check_victory():
 	elif enemy_list.get_child_count()  == 0 and !victory and ending_of_story:
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
-		Globals.level += 1
 		ending.show()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
