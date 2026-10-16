@@ -10,11 +10,25 @@ var all_button = []
 @export var individual_node_dis = 100
 @export var max_num_button_per_node: int = 5
 
+var new_scene: PackedScene
+
 func _ready() -> void:
 	print("getting started")
-	ending_node = $"map/big bad guy"
-	await _generate_thing()
-	_draw_lines()
+	if ResourceLoader.exists("res://new_scripts/temp/run.tscn"):
+		$map.queue_free()
+		new_scene = load("res://new_scripts/temp/run.tscn")
+		var map = new_scene.instantiate()
+		map.name = "map"
+		add_child(map, true)
+		ending_node = get_node("map/big bad guy")
+		_draw_lines()
+	else:
+		ending_node = $"map/big bad guy"
+		_generate_thing()
+		_draw_lines()
+		
+	
+	
 	
 	
 	
@@ -53,30 +67,34 @@ func _generate_thing():
 				
 			if spawn_button:
 				var button = battle_button_instances.instantiate()
+				
 				button.position = Vector2(j * 100 + (ending_node.position.x - (current_width / 2)), current_depth + 67)
 				current_layer_buttons.append(button)
 				button.layer = layers + 1 - i
 				
+				$map.add_child(button, true)
+				button.owner = $map
+				
 				if all_button.is_empty():
-					button.next_level.append(ending_node)
+					button.next_level_paths.append(button.get_path_to(ending_node))
 				else:
 					var previous_buttons = all_button[i - 2]
-					
-					
 					var available_targets = previous_buttons.duplicate()
-					
 					var max_connections = randi_range(1, 3)
+					
 					for lines in range(max_connections):
 						if available_targets.is_empty():
 							break
 						var closest = find_closest_node_by_x(button, available_targets)
 						if closest:
-							button.next_level.append(closest)
+							button.next_level_paths.append(button.get_path_to(closest))
 							available_targets.erase(closest) 
-
-				$map.add_child(button, true)
 				
 		all_button.append(current_layer_buttons)
+		
+	new_scene = PackedScene.new()
+	new_scene.pack($map)
+	ResourceSaver.save(new_scene,"res://new_scripts/temp/run.tscn")
 
 
 func find_closest_node_by_x(current_node, list_of_nodes):
