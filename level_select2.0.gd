@@ -15,28 +15,19 @@ var new_scene: PackedScene
 func _ready() -> void:
 	print("getting started")
 	if ResourceLoader.exists("res://new_scripts/temp/run.tscn"):
-		var old_map = $map
-		remove_child(old_map)
-		old_map.free()
+		$map.queue_free()
 		new_scene = load("res://new_scripts/temp/run.tscn")
 		var map = new_scene.instantiate()
 		map.name = "map"
 		add_child(map, true)
 		ending_node = get_node("map/big bad guy")
 		_draw_lines()
-		var real_nodes = []
-		for node_name in Globals.level_current_next_levels:
-
-			var found_node = map.get_node_or_null(node_name)
-			if found_node:
-				real_nodes.append(found_node)
-		Globals.level_current_next_levels = real_nodes
 	else:
 		ending_node = $"map/big bad guy"
 		_generate_thing()
 		_draw_lines()
 		
-	print(Globals.level_current_next_levels)
+	
 	
 	
 	
@@ -49,8 +40,6 @@ func _draw_lines() -> void:
 func _generate_thing():
 	var current_depth = 0
 	var current_width = 0
-	
-	all_button.clear()
 	
 	for i in range(1, layers + 1):
 		var current_layer_buttons = []
@@ -89,9 +78,9 @@ func _generate_thing():
 				if all_button.is_empty():
 					button.next_level_paths.append(button.get_path_to(ending_node))
 				else:
-					var previous_layer = all_button[-1] 
-					var available_targets = previous_layer.duplicate()
-					var max_connections = randi_range(1, min(3, available_targets.size()))
+					var previous_buttons = all_button[i - 2]
+					var available_targets = previous_buttons.duplicate()
+					var max_connections = randi_range(1, 3)
 					
 					for lines in range(max_connections):
 						if available_targets.is_empty():
@@ -100,15 +89,13 @@ func _generate_thing():
 						if closest:
 							button.next_level_paths.append(button.get_path_to(closest))
 							available_targets.erase(closest) 
-							
-				if i == layers:
-						Globals.level_current_next_levels.append(button.name) 
-					
+				
 		all_button.append(current_layer_buttons)
 		
 	new_scene = PackedScene.new()
 	new_scene.pack($map)
-	ResourceSaver.save(new_scene, "res://new_scripts/temp/run.tscn")
+	ResourceSaver.save(new_scene,"res://new_scripts/temp/run.tscn")
+
 
 func find_closest_node_by_x(current_node, list_of_nodes):
 	var closest_distance: float = INF

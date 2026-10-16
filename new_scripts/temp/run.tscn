@@ -21,16 +21,60 @@ final_boss = true
 
 [node name="small bad guy" type="Button" parent="." unique_id=1299200072 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
-offset_left = 479.0
+offset_left = 329.0
 offset_top = 167.0
-offset_right = 556.0
+offset_right = 406.0
 offset_bottom = 249.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
 next_level_paths = Array[NodePath]([NodePath("../big bad guy")])
 layer = 5
 
-[node name="small bad guy2" type="Button" parent="." unique_id=1038495667 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy2" type="Button" parent="." unique_id=1206007829 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 167.0
+offset_right = 506.0
+offset_bottom = 249.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../big bad guy")])
+layer = 5
+
+[node name="small bad guy3" type="Button" parent="." unique_id=193337243 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 167.0
+offset_right = 606.0
+offset_bottom = 249.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../big bad guy")])
+layer = 5
+
+[node name="small bad guy4" type="Button" parent="." unique_id=1413963311 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 167.0
+offset_right = 706.0
+offset_bottom = 249.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../big bad guy")])
+layer = 5
+
+[node name="small bad guy5" type="Button" parent="." unique_id=1986601314 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 167.0
+offset_right = 806.0
+offset_bottom = 249.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../big bad guy")])
+layer = 5
+
+[node name="small bad guy6" type="Button" parent="." unique_id=1534841916 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 329.0
 offset_top = 267.0
@@ -38,10 +82,10 @@ offset_right = 406.0
 offset_bottom = 349.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy"), NodePath("../small bad guy2")])
 layer = 4
 
-[node name="small bad guy3" type="Button" parent="." unique_id=1360674897 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy7" type="Button" parent="." unique_id=1718841242 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 429.0
 offset_top = 267.0
@@ -49,10 +93,21 @@ offset_right = 506.0
 offset_bottom = 349.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy2"), NodePath("../small bad guy"), NodePath("../small bad guy3")])
 layer = 4
 
-[node name="small bad guy4" type="Button" parent="." unique_id=254212317 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy8" type="Button" parent="." unique_id=1752918780 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 267.0
+offset_right = 606.0
+offset_bottom = 349.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy3"), NodePath("../small bad guy2")])
+layer = 4
+
+[node name="small bad guy9" type="Button" parent="." unique_id=1419982184 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 629.0
 offset_top = 267.0
@@ -60,10 +115,10 @@ offset_right = 706.0
 offset_bottom = 349.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy4"), NodePath("../small bad guy3"), NodePath("../small bad guy5")])
 layer = 4
 
-[node name="small bad guy5" type="Button" parent="." unique_id=1060989021 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy10" type="Button" parent="." unique_id=1280404998 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 729.0
 offset_top = 267.0
@@ -71,87 +126,98 @@ offset_right = 806.0
 offset_bottom = 349.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy5")])
 layer = 4
 
-[node name="small bad guy6" type="Button" parent="." unique_id=1524997589 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy11" type="Button" parent="." unique_id=679790963 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
-offset_left = 279.0
+offset_left = 429.0
 offset_top = 367.0
-offset_right = 356.0
+offset_right = 506.0
 offset_bottom = 449.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy2")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy7"), NodePath("../small bad guy6")])
 layer = 3
 
-[node name="small bad guy7" type="Button" parent="." unique_id=447481552 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy12" type="Button" parent="." unique_id=1020905787 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
-offset_left = 579.0
+offset_left = 529.0
 offset_top = 367.0
-offset_right = 656.0
+offset_right = 606.0
 offset_bottom = 449.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy4"), NodePath("../small bad guy3")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy8"), NodePath("../small bad guy7"), NodePath("../small bad guy9")])
 layer = 3
 
-[node name="small bad guy8" type="Button" parent="." unique_id=451558173 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy13" type="Button" parent="." unique_id=1713742812 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
-offset_left = 679.0
-offset_top = 367.0
-offset_right = 756.0
-offset_bottom = 449.0
-text = "bad guy"
-script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy4"), NodePath("../small bad guy5")])
-layer = 3
-
-[node name="small bad guy9" type="Button" parent="." unique_id=1149101355 instance=ExtResource("2_l8dl0")]
-layout_mode = 0
-offset_left = 779.0
-offset_top = 367.0
-offset_right = 856.0
-offset_bottom = 449.0
-text = "bad guy"
-script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy5"), NodePath("../small bad guy4"), NodePath("../small bad guy3")])
-layer = 3
-
-[node name="small bad guy10" type="Button" parent="." unique_id=2019008106 instance=ExtResource("2_l8dl0")]
-layout_mode = 0
-offset_left = 879.0
-offset_top = 367.0
-offset_right = 956.0
-offset_bottom = 449.0
-text = "bad guy"
-script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy5"), NodePath("../small bad guy4"), NodePath("../small bad guy3")])
-layer = 3
-
-[node name="small bad guy11" type="Button" parent="." unique_id=904267455 instance=ExtResource("2_l8dl0")]
-layout_mode = 0
-offset_left = 629.0
+offset_left = 179.0
 offset_top = 467.0
-offset_right = 706.0
+offset_right = 256.0
 offset_bottom = 549.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy7"), NodePath("../small bad guy8"), NodePath("../small bad guy9")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy11")])
 layer = 2
 
-[node name="small bad guy12" type="Button" parent="." unique_id=1671831559 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy14" type="Button" parent="." unique_id=1740895550 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 467.0
+offset_right = 356.0
+offset_bottom = 549.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy11"), NodePath("../small bad guy12")])
+layer = 2
+
+[node name="small bad guy15" type="Button" parent="." unique_id=697896194 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 467.0
+offset_right = 456.0
+offset_bottom = 549.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy11"), NodePath("../small bad guy12")])
+layer = 2
+
+[node name="small bad guy16" type="Button" parent="." unique_id=1057652158 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 479.0
-offset_top = 567.0
+offset_top = 467.0
 offset_right = 556.0
+offset_bottom = 549.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy11"), NodePath("../small bad guy12")])
+layer = 2
+
+[node name="small bad guy17" type="Button" parent="." unique_id=1343782369 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 467.0
+offset_right = 956.0
+offset_bottom = 549.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy12")])
+layer = 2
+
+[node name="small bad guy18" type="Button" parent="." unique_id=1471806579 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 567.0
+offset_right = 356.0
 offset_bottom = 649.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy11")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy14")])
 layer = 1
 
-[node name="small bad guy13" type="Button" parent="." unique_id=125980409 instance=ExtResource("2_l8dl0")]
+[node name="small bad guy19" type="Button" parent="." unique_id=1591462980 instance=ExtResource("2_l8dl0")]
 layout_mode = 0
 offset_left = 579.0
 offset_top = 567.0
@@ -159,7 +225,29 @@ offset_right = 656.0
 offset_bottom = 649.0
 text = "bad guy"
 script = ExtResource("1_4amj7")
-next_level_paths = Array[NodePath]([NodePath("../small bad guy11")])
+next_level_paths = Array[NodePath]([NodePath("../small bad guy16")])
+layer = 1
+
+[node name="small bad guy20" type="Button" parent="." unique_id=1987778482 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 567.0
+offset_right = 756.0
+offset_bottom = 649.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy16"), NodePath("../small bad guy17"), NodePath("../small bad guy15")])
+layer = 1
+
+[node name="small bad guy21" type="Button" parent="." unique_id=1801122810 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 779.0
+offset_top = 567.0
+offset_right = 856.0
+offset_bottom = 649.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level_paths = Array[NodePath]([NodePath("../small bad guy17"), NodePath("../small bad guy16")])
 layer = 1
 
 [connection signal="button_down" from="small bad guy" to="small bad guy" method="_on_button_down"]
@@ -175,3 +263,11 @@ layer = 1
 [connection signal="button_down" from="small bad guy11" to="small bad guy11" method="_on_button_down"]
 [connection signal="button_down" from="small bad guy12" to="small bad guy12" method="_on_button_down"]
 [connection signal="button_down" from="small bad guy13" to="small bad guy13" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy14" to="small bad guy14" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy15" to="small bad guy15" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy16" to="small bad guy16" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy17" to="small bad guy17" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy18" to="small bad guy18" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy19" to="small bad guy19" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy20" to="small bad guy20" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy21" to="small bad guy21" method="_on_button_down"]

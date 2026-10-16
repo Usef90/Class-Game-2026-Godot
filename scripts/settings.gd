@@ -1,7 +1,7 @@
 extends Node
 
 var MusicVolume: float = -5
-var level_current_next_levels: Array = []
+var level: int = 1
 
 var failure_counter = 0
 
@@ -30,8 +30,3 @@ var achievements = {
 	
 	
 }
-
-func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		if ResourceLoader.exists("res://new_scripts/temp/run.tscn"):
-			DirAccess.remove_absolute("res://new_scripts/temp/run.tscn")
