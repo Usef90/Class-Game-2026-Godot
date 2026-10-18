@@ -1,25 +1,37 @@
-class_name Card
+class_name CardData
 extends RefCounted
 
-static var CARDS:Array[Card] = []
+static var CARDS:Array[CardData] = []
 
+enum Target { PLAYER, ENEMY, ENEMIES }
+
+## numerical id to identify the card. equal to its index in the CardData.CARDS array
 var id:int
+## displayed name of the card
 var name: String
+## displayed description of the card
 var description: String
 # shop stuff:
+## price in shop of the card
 var price: int = 75
 # battle stuff:
+## amount of times the card triggers in battle
 var repeats: int = 1
-enum Target { PLAYER, ENEMY, ENEMIES }
+## the main target of the card in battle
 var target: Target = Target.ENEMY
+## the energy cost of the card in battle
 var energy_cost: int
+## the damage the card does to its target(s)
 var damage: int = 0
 # all of these arrays should have the same length
 var effect_types: Array[Effect] = []
 var effect_values: Array[int] = []
 var effect_targets: Array[Target] = []
+# display stuff:
+## the image on the card
+var image: Texture2D
 
-func _ready() -> void:
+static func initialise() -> void:
 	new_card("Slice", 1, "Deal 5 damage") \
 		.attack(5)
 	new_card("Power-up Slash", 2, "Deal 5 damage, apply 3 strength") \
@@ -63,8 +75,8 @@ func _ready() -> void:
 	new_card("Recharge", 1, "Gain 4 parry, gain 4 more parry at the start of your next turn") \
 		.target_player().with_effect(Effect.PARRY, 4).with_effect(Effect.DELAYED_PARRY, 4)
 
-static func new_card(_name:String, _energy_cost:int, _description: String) -> Card:
-	var card:Card = Card.new()
+static func new_card(_name:String, _energy_cost:int, _description: String) -> CardData:
+	var card:CardData = CardData.new()
 	card.id = len(CARDS)
 	card.name = _name
 	card.energy_cost = _energy_cost
@@ -72,31 +84,31 @@ static func new_card(_name:String, _energy_cost:int, _description: String) -> Ca
 	CARDS.append(card)
 	return card
 
-#func shop(_price:int) -> Card: price = _price; return self
+#func shop(_price:int) -> CardData: price = _price; return self
 
-func target_player() -> Card:
+func target_player() -> CardData:
 	target = Target.PLAYER
 	return self
-func attack(_damage:int=0) -> Card:
+func attack(_damage:int=0) -> CardData:
 	damage = _damage
 	target = Target.ENEMY
 	return self
-func attack_aoe(_damage:int=0) -> Card:
+func attack_aoe(_damage:int=0) -> CardData:
 	target = Target.ENEMIES
 	damage = _damage
 	return self
 
-func with_effect(effect:Effect, value:int=0) -> Card:
+func with_effect(effect:Effect, value:int=0) -> CardData:
 	effect_types.append(effect)
 	effect_values.append(value)
 	effect_targets.append(target)
 	return self
-func with_player_effect(effect:Effect, value:int=0) -> Card:
+func with_player_effect(effect:Effect, value:int=0) -> CardData:
 	effect_types.append(effect)
 	effect_values.append(value)
 	effect_targets.append(Target.PLAYER)
 	return self
 
-func repeat(_repeats:int) -> Card: repeats = _repeats; return self
+func repeat(_repeats:int) -> CardData: repeats = _repeats; return self
 
 
