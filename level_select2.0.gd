@@ -78,8 +78,9 @@ func _generate_thing():
 				if all_button.is_empty():
 					button.next_level_paths.append(button.get_path_to(ending_node))
 				else:
-					var previous_buttons = all_button[i - 2]
-					var available_targets = previous_buttons.duplicate()
+					var available_targets = []
+					for k in all_button:
+						available_targets += k
 					var max_connections = randi_range(1, 3)
 					
 					for lines in range(max_connections):

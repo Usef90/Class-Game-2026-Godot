@@ -2,7 +2,7 @@ extends Button
 
 @export var final_boss: bool
 
-@export var next_level_paths: Array[NodePath] = []
+@export var next_level_paths: Array = []
 
 var next_level:Array = []
 @export var layer:int
