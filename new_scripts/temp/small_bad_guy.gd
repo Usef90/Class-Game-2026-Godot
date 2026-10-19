@@ -8,11 +8,12 @@ var converted_next_levels: Array = []
 
 
 func _ready() -> void:
+	_convert()
 	if final_boss:
 		owner = get_parent()
 	
 
-	_convert()
+	
 	print(next_level)
 	print(name)
 	queue_redraw()
@@ -23,6 +24,7 @@ func _convert():
 
 func _connecting():
 	queue_redraw()
+	_convert()
 	
 func _draw() -> void:
 	

@@ -7,7 +7,7 @@ var all_button = []
 
 @export var layers: int = 5
 @export var layer_spreadness = 115
-@export var individual_node_dis = 200
+@export var individual_node_dis = 150
 @export var max_num_button_per_node: int = 4
 
 var new_scene: PackedScene
@@ -23,9 +23,9 @@ func _ready() -> void:
 		ending_node = get_node("map/big bad guy")
 		_draw_lines()
 	else:
-		ending_node = $"map/big bad guy"
+		ending_node = get_node("map/big bad guy")
 		_generate_thing()
-		_draw_lines()
+		
 		
 	
 	
@@ -33,6 +33,7 @@ func _ready() -> void:
 	
 	
 func _draw_lines() -> void:
+	print("drawing shat")
 	for node in $map.get_children():
 		node._connecting()
 	
@@ -93,11 +94,11 @@ func _generate_thing():
 							available_targets.erase(closest) 
 					
 		all_button.append(current_layer_buttons)
-		
+	_draw_lines.call_deferred()
 	new_scene = PackedScene.new()
 	new_scene.pack($map)
 	ResourceSaver.save(new_scene,"res://new_scripts/temp/run.tscn")
-	
+
 
 func find_closest_node_by_x(current_node, list_of_nodes):
 	var closest_distance: float = INF
