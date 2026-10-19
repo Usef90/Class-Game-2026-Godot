@@ -2,35 +2,31 @@ extends Button
 
 @export var final_boss: bool
 
-@export var next_level_paths: Array = []
+@export var next_level: Array = []
+var converted_next_levels: Array = []
 
-var next_level:Array = []
-@export var layer:int
 
 
 func _ready() -> void:
 	if final_boss:
 		owner = get_parent()
 	
-	_load_connections()
-	
-	print(next_level_paths)
+
+	_convert()
+	print(next_level)
 	print(name)
 	queue_redraw()
 
-func _load_connections() -> void:
-	next_level.clear()
-	for path in next_level_paths:
-		var target = get_node_or_null(path)
-		if target:
-			next_level.append(target)
+func _convert():
+	for i in next_level:
+		converted_next_levels.append(get_parent().find_child(i))
 
 func _connecting():
-	_load_connections()
 	queue_redraw()
 	
 func _draw() -> void:
-	for i in next_level:
+	
+	for i in converted_next_levels:
 		
 		var targeted_position = i.position + (i.size / 2) + Vector2(0,(i.size / 2).y)
 
@@ -40,6 +36,8 @@ func _draw() -> void:
 		draw_line(line_start, line_end, Color.BLACK, 5, true)
 
 func _on_button_down() -> void:
-	if Globals.level != layer:
+	print(Globals.level)
+	if name not in Globals.level:
 		return
+	Globals.level = next_level
 	get_tree().change_scene_to_file("res://scenes/final.tscn")

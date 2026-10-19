@@ -19,10 +19,10 @@ offset_bottom = 40.0
 
 [node name="big bad guy" type="Button" parent="map" unique_id=1136336530]
 layout_mode = 0
-offset_left = 579.0
-offset_top = 24.0
-offset_right = 663.0
-offset_bottom = 103.0
+offset_left = 581.0
+offset_top = 9.0
+offset_right = 665.0
+offset_bottom = 88.0
 button_mask = 5
 text = "final boss"
 script = ExtResource("2_p0wlc")
