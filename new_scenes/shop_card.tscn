@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmftqd3i0wjk2"]
+
+[ext_resource type="Script" uid="uid://bmev8xs1vkafb" path="res://new_scripts/shop_card.gd" id="1_i4jq8"]
+[ext_resource type="PackedScene" uid="uid://24p4uncg00vj" path="res://new_scenes/card.tscn" id="2_xyuu5"]
+
+[node name="shop_card" type="Control" unique_id=700191682]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_i4jq8")
+metadata/_custom_type_script = "uid://bmev8xs1vkafb"
+
+[node name="card" parent="." unique_id=293760320 instance=ExtResource("2_xyuu5")]
+layout_mode = 0
+offset_left = -7.6293945e-06
+offset_top = 0.0
+offset_right = 250.0
+offset_bottom = 350.0
+
+[node name="buy_button" type="Button" parent="." unique_id=956547880]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 147.0
+offset_right = 114.0
+offset_bottom = 183.0
+text = "Price"

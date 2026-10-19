@@ -27,11 +27,12 @@ var achievements = {
 	"nuts": false,
 	"fih": false,
 	"oil_up": false,
-	
-	
 }
 
 #removes the current run we have
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_EXIT_TREE:
 		DirAccess.remove_absolute("res://new_scripts/temp/run.tscn")
+func _ready() -> void:
+	CardData.initialise()
+
