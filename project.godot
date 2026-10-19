@@ -28,7 +28,6 @@ ListEnemyStatusEffects="*uid://dtkfnl78mea1k"
 StatusIcon="*uid://c4gvkjslm5vco"
 TransitionManager="*res://scenes/transition_manager.tscn"
 HoverTooltip="*uid://btawowwfwdk0w"
-Signals="*uid://8s4e7ylqsryj"
 Explosions="*uid://cpx2awxp5s3gv"
 
 [display]

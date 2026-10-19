@@ -1,0 +1,21 @@
+class_name CardNode
+extends Node2D
+
+var data:CardData
+
+@onready var name_label:Label = $"name"
+@onready var description:Label = $"description"
+@onready var image:TextureRect = $"image"
+@onready var background:TextureRect = $"background"
+@onready var cost:Label = $"cost"
+
+static func create(_data:CardData) -> CardNode:
+	var card:CardNode = preload("res://new_scenes/card.tscn").instantiate()
+	card.data = _data
+	return card
+
+func _ready() -> void:
+	name_label.text = data.name
+	description.text = data.description
+	image.texture = data.image
+	cost.text = str(data.energy_cost)

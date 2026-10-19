@@ -27,6 +27,8 @@ var achievements = {
 	"nuts": false,
 	"fih": false,
 	"oil_up": false,
-	
-	
 }
+
+func _ready() -> void:
+	CardData.initialise()
+

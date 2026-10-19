@@ -1,3 +1,4 @@
+class_name Shop
 extends Control
 
 ## shop scene thingy kallum coded this since I been on this to add cards I 
@@ -29,25 +30,12 @@ var upgrade_pool = [
 	{"display_name": "Nuts","id": "nuts", "type": "relic", "effect": "Increase single damage by 12.5%", "icon": preload("res://Art/peanut.png")}
 ]
 
-# --- REGULAR ITEM POOL --- A
-# NOTE: "effect" is what shows up in the hover tooltip in the shop. thx kallum
-# paste the cards into this pool must have the following key
-# "display_name" , "id" "effect", "icon"
-var regular_item_pool = [
-	{"display_name": "tin foil","id": "iron_shield", "price": 3, "type": "defense", "effect": "Blocks 75% incoming damage", "icon": preload("res://Art/Tinfoil(card).png")},
-	{"display_name": "Frying Pan","id": "frying_pan", "price": 5, "type": "attack", "effect": "Deals 13 AOE damage", "icon": preload("res://Art/Frying_pan(_card).png")},
-	{"display_name": "Heal","id": "health_potion", "price": 2, "type": "utility", "effect": "Restores 20 HP", "icon": preload("res://Art/Heal(card).png")},
-	{"display_name": "Corn Ball","id": "corn_ball", "price": 6, "type": "buff", "effect": "Deals 15 AOE and burns", "icon": preload("res://Art/Cornball(no_card).png")},
-	{"display_name": "Aura Farm","id": "we_see_the_fit", "price": 4, "type": "passive", "effect": "weakens the enemies but can get punished", "icon": preload("res://Art/WeSeeTheFit.png")},
-	{"display_name": "Hot Sauce","id": "hot_sauce", "price": 3, "type": "buff", "effect": "Boosts your damage", "icon": preload("res://Art/Hot_Sauce(card).png")},
-	{"display_name": "Knife","id": "knife", "price": 3, "type": "buff", "effect": "single attack 7 damage plus bleed", "icon": preload("res://Art/knifeBase.png")},
-	#{"display_name": "Black Flash","id": "black_flash", "price": 15, "type": "attack", "effect": "High energy. Nail the rhythm timing for a massive hit -- miss it and it barely scratches.", "icon": preload("res://Art/BlackFlash(card).png")},
-	{"display_name": "Hot Oil","id": "oil", "price": 6, "type": "buff", "effect": "35 single damage with risks involve", "icon": preload("res://Art/Hot_Oil.png")},
-]
-
-var pack_pool = [
-	{"display_name": "Buffoon Pack", "id": "Buffoon Pack", "price": 5, "type": "pack", "effect": "Opens 3 random upgrades -- pick 1 to keep"}
-]
+func available_cards() -> Array[CardData]:
+	var cards:Array[CardData] = []
+	for card in CardData.CARDS:
+		# if condition
+		cards.append(card)
+	return cards
 
 func _ready() -> void:
 	AudioManager.play("LevelSelect")
@@ -86,56 +74,52 @@ func clear_shop_shelves() -> void:
 		child.queue_free()
 
 func generate_entire_shop() -> void:
-	var temp_pack_pool = pack_pool.duplicate()
-	var temp_item_pool = regular_item_pool.duplicate()
+	#var temp_pack_pool = pack_pool.duplicate()
+	var temp_cards_pool:Array[CardData] = available_cards()
 
-	for i in range(2):
-		if temp_pack_pool.is_empty(): break
-		var pack_data = temp_pack_pool.pick_random()
-		create_card_on_shelf(pack_data, top_fridge, true) 
+	#for i in range(2):
+	#	if temp_pack_pool.is_empty(): break
+	#	var pack_data = temp_pack_pool.pick_random()
+	#	create_card_on_shelf(pack_data, top_fridge, true) 
 		
 	for i in range(5):
-		if temp_item_pool.is_empty(): break
-		var item_data = temp_item_pool.pick_random()
-		
-		create_card_on_shelf(item_data, bottom_fridge, false) 
+		if temp_cards_pool.is_empty(): break
+		var card:CardData = temp_cards_pool.pick_random()
+		print("here")
+		create_card_on_shelf(card, bottom_fridge)
 
-func create_card_on_shelf(item_data: Dictionary, target_fridge: Node, is_pack: bool) -> void:
-	var card
-	if is_pack and pack_scene:
-		card = pack_scene.instantiate()
-	else:
-		card = card_scene.instantiate()
+func create_card_on_shelf(card_data:CardData, target_fridge:Node) -> void:
+	var card_node:ShopCard = ShopCard.create(card_data, self)
 		
-	target_fridge.add_child(card)
-	
-	var name_label = card.get_node_or_null("NameLabel")
-	var price_label = card.get_node_or_null("PriceLabel")
-	var buy_button = card.get_node_or_null("BuyButton")
-	var icon_rect = card.get_node_or_null("Background") 
-	
-	if not icon_rect:
-		icon_rect = card.get_node_or_null("ItemIcon")
-	
-	if name_label: 
-		name_label.text = item_data["display_name"]
-	if price_label: 
-		if item_data.has("price"):
-			price_label.text = str(item_data["price"]) + " Gold"
-		else:
-			price_label.text = ""
-		
-	if icon_rect and item_data.has("icon"):
-		icon_rect.texture = item_data["icon"]
-		
-	if buy_button:
-		buy_button.pressed.connect(func(): _on_item_purchased(item_data, card))
+	target_fridge.add_child(card_node)
 
 	# Hover tooltip -- Balatro-style popup instead of the native OS tooltip.
-	card.mouse_entered.connect(func():
-		HoverTooltip.show_at(card, item_data.get("display_name", ""), item_data.get("effect", ""))
+	card_node.mouse_entered.connect(func():
+		HoverTooltip.show_at(card_node, card_data.name, card_data.description)
 	)
-	card.mouse_exited.connect(func(): HoverTooltip.hide_tooltip(card))
+	card_node.mouse_exited.connect(func(): HoverTooltip.hide_tooltip(card_node))
+
+func purchase_card(card:ShopCard) -> void:
+	var data:CardData = card.card.data
+	if PlayerStats.player_gold < data.price:
+		print("Not enough money to buy ", data.name)
+		return
+
+	PlayerStats.player_gold -= data.price
+	update_gold_ui()
+	
+	# 1. Force tooltip away immediately
+	HoverTooltip.hide_tooltip(card)
+	
+	# TODO: remove this? this shouldnt be needed
+	# 2. Disable mouse input on the bought card so it stops sending mouse_entered
+	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	card.queue_free()
+	
+	# TODO: rework player attacks to use new card system
+	#PlayerStats.attacks.append(data)
+	print("Successfully Bought! Global Inventory Contents: ", PlayerStats.attacks)
 
 func _on_item_purchased(item_data: Dictionary, card_node: Node) -> void:
 	var cost = item_data["price"]

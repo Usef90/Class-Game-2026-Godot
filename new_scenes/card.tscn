@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://24p4uncg00vj"]
+
+[ext_resource type="Script" uid="uid://bfpuw3fyrlbeq" path="res://new_scripts/card_node.gd" id="1_psnm6"]
+[ext_resource type="Texture2D" uid="uid://qju8bivensgw" path="res://Art/CardTemplateTuff.png" id="2_i0hap"]
+[ext_resource type="Texture2D" uid="uid://bpgg4yf20b7g8" path="res://Art/AuraFarm.png" id="3_k4uei"]
+
+[node name="card" type="Node2D" unique_id=1738038310]
+physics_interpolation_mode = 2
+scale = Vector2(0.5706078, 0.5706078)
+script = ExtResource("1_psnm6")
+metadata/_custom_type_script = "uid://bfpuw3fyrlbeq"
+
+[node name="background" type="TextureRect" parent="." unique_id=993223567]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 249.0
+offset_bottom = 351.0
+texture = ExtResource("2_i0hap")
+
+[node name="name" type="Label" parent="." unique_id=1243870691]
+offset_left = 63.0
+offset_top = 28.0
+offset_right = 263.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 21
+text = "AURA FARM"
+
+[node name="image" type="TextureRect" parent="." unique_id=1145997083]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 249.0
+offset_bottom = 351.0
+texture = ExtResource("3_k4uei")
+
+[node name="description" type="Label" parent="." unique_id=1423348561]
+offset_left = 30.0
+offset_top = 187.0
+offset_right = 230.0
+offset_bottom = 305.0
+text = "weaken enemy
+"
+autowrap_mode = 2
+
+[node name="cost" type="Label" parent="." unique_id=2130168746]
+offset_left = 9.0
+offset_top = -10.0
+offset_right = 209.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 40
+text = "9"
