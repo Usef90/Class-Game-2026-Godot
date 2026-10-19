@@ -1,7 +1,7 @@
 extends Node
 
 var MusicVolume: float = -5
-var level: int = 1
+var level: Array = []
 
 var failure_counter = 0
 
@@ -29,6 +29,10 @@ var achievements = {
 	"oil_up": false,
 }
 
+#removes the current run we have
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EXIT_TREE:
+		DirAccess.remove_absolute("res://new_scripts/temp/run.tscn")
 func _ready() -> void:
 	CardData.initialise()
 

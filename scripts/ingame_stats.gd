@@ -20,13 +20,7 @@ var incoming_damage: float = 0
 @onready var animation_player = $"../animations"
 
 func _is_player_killed_achievements(killer:String):
-	if Globals.level == 1:
-		Globals.achievements["john"] = true
-	if Globals.level == 2 and killer == "Pearto":
-		Globals.achievements["lagtrain"] = true
-		
-	if Globals.level == 7 and attack_name == "banana_nuke":
-		Globals.achievements["nuked"] = true
+	pass
 		
 		
 # Called when the node enters the scene tree for the first time.
