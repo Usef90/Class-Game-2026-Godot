@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://86q275l1hhq0"]
 
 [ext_resource type="Script" uid="uid://w1rd75tw6ylc" path="res://ShopStuff/shop_scene.gd" id="1_xduvy"]
-[ext_resource type="Texture2D" uid="uid://5a768ou6j0qq" path="res://Art/fridge.png" id="2_g6l4v"]
+[ext_resource type="Texture2D" uid="uid://drfgpi8i8t7yj" path="res://Art/BACKGROUNDSNEW/shop.png" id="2_g0e1r"]
 [ext_resource type="Script" uid="uid://u4ks6kn82y6w" path="res://Upgrades/pack_opening_scene.gd" id="4_g0e1r"]
 [ext_resource type="PackedScene" uid="uid://dc57hjimdun51" path="res://ShopStuff/pack_opener.tscn" id="5_pkopn"]
 
@@ -18,7 +18,7 @@ script = ExtResource("1_xduvy")
 layout_mode = 0
 offset_right = 1283.5555
 offset_bottom = 722.0
-texture = ExtResource("2_g6l4v")
+texture = ExtResource("2_g0e1r")
 
 [node name="TopFridge" type="HBoxContainer" parent="." unique_id=696781289]
 layout_mode = 1
