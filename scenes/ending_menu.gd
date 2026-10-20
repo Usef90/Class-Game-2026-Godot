@@ -52,7 +52,8 @@ func _on_texture_button_button_down() -> void:
 	PlayerStats.player_gold =20
 	PlayerStats.attacks = []
 	PlayerStats.upgrades = []
-	Globals.level = 1
+	# TODO:
+	#Globals.level = 1
 
 
 func _on_replay_button_down() -> void:

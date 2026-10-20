@@ -3,15 +3,15 @@ extends Node2D
 # main menu script
 
 var background_no:int = 0
-var background1 = preload("res://Art/gordoTitleScreen.png")
-var background2 = preload("res://Art/furry king mainmenu.png")
-var background3 = preload("res://Art/domainexpansion.png")
-var background4 = preload("res://Art/john vs socrates.png")
-var background5 = preload("res://Art/mainMenu caleb and jacon.png")
-var background6 = preload("res://Art/sitDown.png")
-var background7 = preload("res://Art/yuta and ryu thing.png")
-var background8 = preload("res://Art/we are larp.png")
-var background9 = preload("res://Art/cooking.png")
+var background1 = preload("res://Art/damn.png")
+var background2 = preload("res://Art/damn.png")
+var background3 = preload("res://Art/damn.png")
+var background4 = preload("res://Art/damn.png")
+var background5 = preload("res://Art/damn.png")
+var background6 = preload("res://Art/damn.png")
+var background7 = preload("res://Art/damn.png")
+var background8 = preload("res://Art/damn.png")
+var background9 = preload("res://Art/damn.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.play("MainMenu")
@@ -22,7 +22,8 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	PlayerStats.attacks = []
 	PlayerStats.upgrades = []
-	Globals.level = 1
+	# TODO:
+	#Globals.level = 1
 	PlayerStats.player_gold = 20
 	TransitionManager.play_transition("res://cutscene/begining_cutscene.tscn")
 

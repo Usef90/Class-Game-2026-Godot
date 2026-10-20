@@ -4,7 +4,7 @@ class_name EffectData extends RefCounted
 var name: String
 ## displayed description of the effect
 var description: String
-# if an effect is valueless then you either have it or you dont and it doesnt have a number
+## if an effect is valueless then you either have it or you dont and it doesnt have a number
 var valueless:bool = false
 
 static var PARRY:EffectData = EffectData.new("Parry", "Reduces incoming damage by (x), lasts until end of enemy turn")
