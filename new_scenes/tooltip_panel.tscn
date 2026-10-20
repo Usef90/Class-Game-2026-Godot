@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bc58858yvq8rh"]
+
+[ext_resource type="Script" uid="uid://cmymypidglxrw" path="res://new_scripts/tooltip_panel.gd" id="1_68u20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io8gl"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.29337206, 0.29337206, 0.36396736, 0.96000004)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.18)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_io8gl"]
+font_size = 20
+font_color = Color(1, 0.96857667, 0.8808251, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_68u20"]
+font_color = Color(0.9452769, 0.9452769, 0.95468724, 1)
+
+[node name="tooltip_panel" type="PanelContainer" unique_id=935648221]
+z_index = 100
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_io8gl")
+script = ExtResource("1_68u20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1133365554]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="title_label" type="Label" parent="VBoxContainer" unique_id=766346436]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_io8gl")
+
+[node name="desc_label" type="Label" parent="VBoxContainer" unique_id=485881800]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(206.5, 0)
+layout_mode = 2
+text = "Description"
+label_settings = SubResource("LabelSettings_68u20")
+autowrap_mode = 2

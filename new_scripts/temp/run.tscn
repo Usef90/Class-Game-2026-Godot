@@ -1,0 +1,175 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://new_scripts/temp/small_bad_guy.gd" id="1_4amj7"]
+[ext_resource type="PackedScene" path="res://new_scripts/temp/small_bad_guy.tscn" id="2_l8dl0"]
+
+[node name="map" type="Control" unique_id=1277149215]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="big bad guy" type="Button" parent="." unique_id=1136336530]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 9.0
+offset_right = 665.0
+offset_bottom = 88.0
+button_mask = 5
+text = "final boss"
+script = ExtResource("1_4amj7")
+final_boss = true
+
+[node name="small bad guy" type="Button" parent="." unique_id=1299200072 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 182.0
+offset_right = 693.0
+offset_bottom = 264.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"big bad guy"]
+
+[node name="small bad guy2" type="Button" parent="." unique_id=432225819 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 297.0
+offset_right = 486.0
+offset_bottom = 379.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy"]
+
+[node name="small bad guy3" type="Button" parent="." unique_id=1578701749 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 297.0
+offset_right = 636.0
+offset_bottom = 379.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy"]
+
+[node name="small bad guy4" type="Button" parent="." unique_id=1584476324 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 412.0
+offset_right = 578.0
+offset_bottom = 494.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy3"]
+
+[node name="small bad guy5" type="Button" parent="." unique_id=2440467 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 412.0
+offset_right = 728.0
+offset_bottom = 494.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy3"]
+
+[node name="small bad guy6" type="Button" parent="." unique_id=1694753684 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 412.0
+offset_right = 878.0
+offset_bottom = 494.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy3", &"small bad guy"]
+
+[node name="small bad guy7" type="Button" parent="." unique_id=1380708901 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 527.0
+offset_right = 428.0
+offset_bottom = 609.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy4", &"small bad guy2"]
+
+[node name="small bad guy8" type="Button" parent="." unique_id=344703837 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 527.0
+offset_right = 578.0
+offset_bottom = 609.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy4"]
+
+[node name="small bad guy9" type="Button" parent="." unique_id=21896561 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 527.0
+offset_right = 728.0
+offset_bottom = 609.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy5", &"small bad guy4"]
+
+[node name="small bad guy10" type="Button" parent="." unique_id=684786930 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 527.0
+offset_right = 878.0
+offset_bottom = 609.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy6", &"small bad guy5"]
+
+[node name="small bad guy11" type="Button" parent="." unique_id=1257600275 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 642.0
+offset_right = 521.0
+offset_bottom = 724.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy8"]
+
+[node name="small bad guy12" type="Button" parent="." unique_id=1312139800 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 642.0
+offset_right = 671.0
+offset_bottom = 724.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy9", &"small bad guy8"]
+
+[node name="small bad guy13" type="Button" parent="." unique_id=1783412896 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 642.0
+offset_right = 821.0
+offset_bottom = 724.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy10"]
+
+[node name="small bad guy14" type="Button" parent="." unique_id=210779178 instance=ExtResource("2_l8dl0")]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 642.0
+offset_right = 971.0
+offset_bottom = 724.0
+text = "bad guy"
+script = ExtResource("1_4amj7")
+next_level = [&"small bad guy10", &"small bad guy6"]
+
+[connection signal="button_down" from="small bad guy" to="small bad guy" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy2" to="small bad guy2" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy3" to="small bad guy3" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy4" to="small bad guy4" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy5" to="small bad guy5" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy6" to="small bad guy6" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy7" to="small bad guy7" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy8" to="small bad guy8" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy9" to="small bad guy9" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy10" to="small bad guy10" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy11" to="small bad guy11" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy12" to="small bad guy12" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy13" to="small bad guy13" method="_on_button_down"]
+[connection signal="button_down" from="small bad guy14" to="small bad guy14" method="_on_button_down"]

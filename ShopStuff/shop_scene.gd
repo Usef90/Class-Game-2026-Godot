@@ -5,12 +5,10 @@ extends Control
 ## kinda know how it wokrs
 
 @export var card_scene: PackedScene = preload("res://ShopStuff/shop_item_card.tscn")
-@export var pack_scene: PackedScene = preload("res://Upgrades/upgrade_pack.tscn") 
 
 @onready var money_text = $MarginContainer/MoneyCounter/MoneyText
-@onready var top_fridge = $TopFridge        # Packs here
-@onready var bottom_fridge = $BottomFridge  # Attacks here
-@onready var PLS_WORK = $PackOpeningScene
+@onready var top_fridge = $TopFridge        # Relics here
+@onready var bottom_fridge = $BottomFridge  # Cards here
 @onready var reroll_button = $MarginContainer/ActionMenu/Reroll
 @onready var next_stage_button = $MarginContainer/ActionMenu/NextStage
 
@@ -56,7 +54,6 @@ func update_gold_ui() -> void:
 		reroll_button.text = "Reroll $" + str(reroll_cost)
 
 func clear_shop_shelves() -> void:
-	HoverTooltip.hide_tooltip()
 	for child in top_fridge.get_children():
 		child.queue_free()
 	for child in bottom_fridge.get_children():
@@ -83,10 +80,7 @@ func create_card_on_shelf(card_data:CardData, target_fridge:Node) -> void:
 	target_fridge.add_child(card_node)
 
 	# Hover tooltip -- Balatro-style popup instead of the native OS tooltip.
-	card_node.mouse_entered.connect(func():
-		HoverTooltip.show_at(card_node, card_data.name, card_data.description)
-	)
-	card_node.mouse_exited.connect(func(): HoverTooltip.hide_tooltip(card_node))
+	HoverTooltip.setup(card_node, card_data.name, card_data.description)
 
 func create_relic_on_shelf(relic_data:RelicData, target_fridge:Node) -> void:
 	var relic_node:ShopRelic = ShopRelic.create(relic_data, self)
@@ -94,11 +88,7 @@ func create_relic_on_shelf(relic_data:RelicData, target_fridge:Node) -> void:
 	target_fridge.add_child(relic_node)
 
 	# Hover tooltip -- Balatro-style popup instead of the native OS tooltip.
-	relic_node.mouse_entered.connect(func():
-		HoverTooltip.show_at(relic_node, relic_data.name, relic_data.description)
-	)
-	relic_node.mouse_exited.connect(func(): HoverTooltip.hide_tooltip(relic_node))
-
+	HoverTooltip.setup(relic_node, relic_data.name, relic_data.description)
 
 func purchase_card(card:ShopCard) -> void:
 	var data:CardData = card.card.data
@@ -108,13 +98,6 @@ func purchase_card(card:ShopCard) -> void:
 
 	PlayerStats.player_gold -= data.price
 	update_gold_ui()
-	
-	# 1. Force tooltip away immediately
-	HoverTooltip.hide_tooltip(card)
-	
-	# TODO: remove this? this shouldnt be needed
-	# 2. Disable mouse input on the bought card so it stops sending mouse_entered
-	card.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	card.queue_free()
 	
