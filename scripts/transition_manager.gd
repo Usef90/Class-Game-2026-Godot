@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 ## kallum's code i don't know how it works but it is the transition manager
 ## so replace every transitionmanger.play_transition(example) with the defalt 
