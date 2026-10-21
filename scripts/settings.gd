@@ -35,4 +35,3 @@ func _notification(what: int) -> void:
 		DirAccess.remove_absolute("res://new_scripts/temp/run.tscn")
 func _ready() -> void:
 	CardData.initialise()
-
