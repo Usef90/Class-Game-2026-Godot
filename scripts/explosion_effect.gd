@@ -13,9 +13,7 @@ extends Node
 
 const ExplosionEffectScene := preload("res://scenes/explosion_effect.tscn")
 
-func _ready() -> void:
-	for i in particle_list:
-		i.emitting = true
+
 		
 func _on_sparks_finished() -> void:
 	queue_free()
