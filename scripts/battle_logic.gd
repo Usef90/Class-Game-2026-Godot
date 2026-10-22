@@ -63,7 +63,7 @@ func _players_turn():
 		ui.cards.add_child(BattleCard.create(card_choice, i))
 	
 	player_stats.hp.value += PlayerStats.player_hitpoint_recovery
-	get_parent().get_node("player").get_node("player_stats").get_node("Label").text = str(int(get_parent().get_node("player").get_node("player_stats").get_node("HP").value)) + "/" +str(int(get_parent().get_node("player").get_node("player_stats").get_node("HP").max_value))
+	player_stats.label.text = str(int(player_stats.hp.value)) + "/" +str(int(player_stats.hp.max_value))
 
 # clean up the id of the cards
 func _update_card_ids() -> void:
@@ -94,5 +94,4 @@ func _check_victory():
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
 		ui.ending.show()
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
