@@ -1,8 +1,7 @@
+class_name Enemy
 extends Node2D
 ## Script that handles the enemy attacks
 ## and adds status to effect
-
-class_name enemy
 
 @export var death_particle: String = "blood"
 @export var enemy_dying: AudioStream

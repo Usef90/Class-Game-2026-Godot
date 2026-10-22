@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bfa68w43uys1h"]
+
+[ext_resource type="Script" uid="uid://c6qxy5vdaxbmx" path="res://new_scripts/battle/battle_card.gd" id="1_s6auu"]
+[ext_resource type="PackedScene" uid="uid://24p4uncg00vj" path="res://new_scenes/card.tscn" id="2_bkxar"]
+
+[node name="battle_card" type="Control" unique_id=1743070204]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s6auu")
+metadata/_custom_type_script = "uid://c6qxy5vdaxbmx"
+
+[node name="card" parent="." unique_id=88366278 instance=ExtResource("2_bkxar")]
+layout_mode = 0

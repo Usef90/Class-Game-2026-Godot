@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy0fvo4kx1jct"]
 
-[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://ui.tscn" id="2_30t23"]
+[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://scenes/battle_ui.tscn" id="2_30t23"]
 [ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://scripts/battle_logic.gd" id="3_6b1qv"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="4_1rxmq"]
 [ext_resource type="PackedScene" uid="uid://ck6ewcnl8sg60" path="res://enemies/enemy.tscn" id="5_6b7v6"]
@@ -23,17 +23,21 @@ animations = [{
 position = Vector2(638, 364)
 scale = Vector2(2.0218751, 2.0218751)
 
-[node name="UI" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
+[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
 
 [node name="BattleLogic" type="Node" parent="." unique_id=1136221329]
 script = ExtResource("3_6b1qv")
 music_name = "FinalBossPleaseGiveInput"
+total_enemies = null
+ending_of_story = null
+victory_gold = null
 achievement_will_gain = "mango"
 
 [node name="player" parent="." unique_id=294404824 instance=ExtResource("4_1rxmq")]
 position = Vector2(232, 291)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1413379743]
+unique_name_in_owner = true
 position = Vector2(835, 394)
 
 [node name="Mango Mustard" parent="enemies" unique_id=708042470 instance=ExtResource("5_6b7v6")]

@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dvxft1w6recdt"]
 
-[ext_resource type="Texture2D" uid="uid://bt8pd6qtc2tsv" path="res://Art/backgroundme67.png" id="1_4bo1f"]
-[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://ui.tscn" id="2_t6hq3"]
+[ext_resource type="Texture2D" path="res://Art/backgroundme67.png" id="1_4bo1f"]
+[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://scenes/battle_ui.tscn" id="2_t6hq3"]
 [ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://scripts/battle_logic.gd" id="3_w878y"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="4_4l37w"]
 [ext_resource type="PackedScene" uid="uid://ck6ewcnl8sg60" path="res://enemies/enemy.tscn" id="5_kgh5h"]
-[ext_resource type="Texture2D" uid="uid://cvnnlej3hajr7" path="res://Art/me68.png" id="6_y02hn"]
+[ext_resource type="Texture2D" path="res://Art/me68.png" id="6_y02hn"]
 [ext_resource type="Script" uid="uid://cpukq3r6546by" path="res://dialogue_manger.gd" id="7_ujw1h"]
 [ext_resource type="Script" uid="uid://buclel82cppmv" path="res://scripts/dialogue_entry.gd" id="8_7ddbm"]
-[ext_resource type="Texture2D" uid="uid://botua6w2u4xeo" path="res://Art/me67.png" id="9_ulq75"]
-[ext_resource type="Texture2D" uid="uid://ckmir275cyots" path="res://Art/gordoRAM.png" id="10_kr1m1"]
-[ext_resource type="Texture2D" uid="uid://dbn20ahdfwck3" path="res://Art/coneLTest.png" id="11_t6hq3"]
+[ext_resource type="Texture2D" path="res://Art/me67.png" id="9_ulq75"]
+[ext_resource type="Texture2D" path="res://Art/gordoRAM.png" id="10_kr1m1"]
+[ext_resource type="Texture2D" path="res://Art/coneLTest.png" id="11_t6hq3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xte1c"]
 atlas = ExtResource("6_y02hn")

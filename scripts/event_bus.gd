@@ -1,7 +1,7 @@
 extends Node
 
 # all the event in the game i think
-
+@warning_ignore_start("unused_signal")
 signal card_selected(id)
 signal in_attack_area
 signal out_attack_area
@@ -31,3 +31,5 @@ signal update_display(sentence)
 
 signal show_status_text(text)
 signal hide_status_text
+@warning_ignore_restore("unused_signal")
+

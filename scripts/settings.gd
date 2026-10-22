@@ -37,8 +37,4 @@ func _ready() -> void:
 
 func end_run() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	PlayerStats.player_gold = 20
-	PlayerStats.attacks = []
-	PlayerStats.upgrades = []
-	Globals.level = Globals.START_LEVEL
 
