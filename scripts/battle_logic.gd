@@ -10,13 +10,13 @@ var enemy_id_turn: int = 0
 @export var music_name: String
 @export var total_enemies:int = 1
 @export var ending_of_story: bool = false
-@export var victory_gold: int = 40
+@export var victory_gold: int = 35
 @export var achievement_will_gain:String = ""
 const MAX_CARDS = 6
 
 var num_of_enemies: int = 0
 var current_state
-enum States{players_turn, enemies_turn, dialogue} 
+enum States {players_turn, enemies_turn, dialogue} 
 
 var cards_can_spawn = [ "punch", "blocking",  "punch"]
 
@@ -115,7 +115,7 @@ func _check_victory():
 	if enemy_list.get_child_count()  == 0 and !victory and !ending_of_story:
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
-		victory_gold = randi_range(10, victory_gold)
+		victory_gold = randi_range(20, victory_gold)
 		PlayerStats.player_gold +=  victory_gold
 		victory_panel.show()
 		victory_panel.get_node("stuff you gain").text = "Gain: " + str(victory_gold) + " gold" + "
