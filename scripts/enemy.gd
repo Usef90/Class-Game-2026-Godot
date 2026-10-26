@@ -23,7 +23,6 @@ var playing_animation = false
 
 func _ready() -> void:
 	Events.connect("players_turn",allow_attack)
-	Events.connect("enemies_turn",_attacked_player)
 	Events.give_side_effects_to_enemies.connect(_add_status)
 	
 	for i in attacks_name:
@@ -34,7 +33,7 @@ func allow_attack():
 	playing_animation = false
 
 # when enemy get affected by status
-func _add_status(status:EffectData, value:int, which:Enemy):
+func _add_status(status:EffectData, value:int, which:Enemy) -> void:
 	if which != self and which != null: return
 	if $enemy_stats.get_node("HP").value == 0:
 		return
@@ -42,19 +41,13 @@ func _add_status(status:EffectData, value:int, which:Enemy):
 	
 # enemy attack script
 # enemy attacks when attack_id == their id
-func _attacked_player(attack_id):
-	
-	if playing_animation == true:
-		return
+func _attacked_player() -> void:
 	playing_animation = true
 	if current_attack_choice  >= attacks.size() -1:
 		current_attack_choice = 0
 	else:
 		current_attack_choice += 1
 	var sentence = ""
-	
-	if attack_id != id:
-		return
 	
 	var damage =(attacks[current_attack_choice].get("damage")) * damage_multiplier
 	
@@ -72,10 +65,4 @@ func _attacked_player(attack_id):
 		return
 	Events.emit_signal("update_display", sentence)
 	Events.emit_signal("damaged_player", damage, attacks[current_attack_choice].get("animation"), name)
-	
 
-
-
-	
-
-	

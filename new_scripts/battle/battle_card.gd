@@ -48,18 +48,28 @@ func _input(event: InputEvent) -> void:
 
 func act() -> void:
 	Events.emit_signal("reduce_energy_by", data.energy_cost)
-	var total_damage:int = data.damage
-	match data.target:
-		CardData.Target.PLAYER: pass # todo
-		CardData.Target.ENEMY: Events.damaged_enemy.emit(total_damage, battle.hovered_enemy)
-		CardData.Target.ENEMIES: Events.damaged_enemy.emit(total_damage, null)
-	for effect in len(data.effect_types):
-		var effect_type:EffectData = data.effect_types[effect]
-		var effect_value:int = data.effect_values[effect]
-		match data.effect_targets[effect]:
-			CardData.Target.PLAYER: Events.give_side_effects_to_player.emit(effect_type, effect_value)
-			CardData.Target.ENEMY: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, battle.hovered_enemy)
-			CardData.Target.ENEMIES: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, null)
+	
+	for repeat in data.repeats:
+		var total_damage:int = data.damage
+		if total_damage != 0:
+			if data.id == CardData.TITAN_SMACK: total_damage += 6*battle.player_effects.get_value(EffectData.STRENGTH)
+			else: total_damage += 2*battle.player_effects.get_value(EffectData.STRENGTH)
+		
+		match data.target:
+			CardData.Target.ENEMY: Events.damaged_enemy.emit(total_damage, battle.hovered_enemy)
+			CardData.Target.ENEMIES: Events.damaged_enemy.emit(total_damage, null)
+		
+		for effect in len(data.effect_types):
+			var effect_type:EffectData = data.effect_types[effect]
+			var effect_value:int = data.effect_values[effect]
+			match data.effect_targets[effect]:
+				CardData.Target.PLAYER:
+					match data.id:
+						CardData.ENRAGE:
+							Events.give_side_effects_to_player.emit(effect_type, 2*battle.player_effects.get_value(EffectData.STRENGTH))
+						_: Events.give_side_effects_to_player.emit(effect_type, effect_value)
+				CardData.Target.ENEMY: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, battle.hovered_enemy)
+				CardData.Target.ENEMIES: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, null)
 
 func _process(_delta: float) -> void:
 	# check if thee card is played in the play field

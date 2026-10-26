@@ -24,8 +24,7 @@ func _ready() -> void:
 
 func _take_damage(damage: int, which:Enemy) -> void:
 	if which != get_parent() and which != null: return
-	player_damge_multiplier = battle.player_stats.damage_multiplier
-	$HP.value -= damage * player_damge_multiplier * def * PlayerStats.player_damage * PlayerStats.player_aoe_damage
+	$HP.value -= damage
 	$Label.text = str(snapped($HP.value, 0.01)) + "/" +str(int($HP.max_value))
 	if $HP.value <= 0:
 		# these were different for some reason so im keeping them different but we should probably change it

@@ -1,34 +1,25 @@
 extends Label
 
-## manages most of the energy
-
-var max_energy: float
 
 var total_energy: float
-var total_regeneration: float # does not change stuff
 # have to change it in the player global
 
 func _ready() -> void:
 	$"../flash".play("RESET")
-	total_regeneration = PlayerStats.player_recovery
-	max_energy = PlayerStats.player_max_energy
-	total_energy = 10
-	$"../energyBar".max_value = max_energy
-	$"../energyBar".value = 10
+	total_energy = PlayerStats.max_energy
+	$"../energyBar".max_value = PlayerStats.max_energy
+	$"../energyBar".value = PlayerStats.max_energy
 	text = str(total_energy)
 	Events.connect("reduce_energy_by", _reduced_energy)
 	Events.connect("players_turn", _regenerate_energy)
 	
 func _regenerate_energy():
 	$"../flash".stop()
-	total_energy += total_regeneration
+	total_energy = PlayerStats.max_energy
 	$"../energyBar".value = total_energy
-	if total_energy >= max_energy:
-		total_energy = max_energy
-
 	$"../ColorRect".visible = false
-	
 	text = str(total_energy)
+
 func _reduced_energy(cost: float):
 	if cost<= total_energy:
 		total_energy -= cost

@@ -12,7 +12,7 @@ signal check_victory_conditions
 
 ## if which is null then it damages all
 signal damaged_enemy(damage:int, which:Enemy)
-signal damaged_player(damage, animation, enemy_name)
+signal damaged_player(damage:int, anim:IngameStats.DamageAnim)
 
 signal reduce_energy_by(cost)
 signal total_energy(total)

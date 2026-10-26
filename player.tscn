@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bdngecq5euxf0" path="res://Art/damn.png" id="1_bwjto"]
 [ext_resource type="PackedScene" uid="uid://ctnf6wjt5kuvb" path="res://player_stats.tscn" id="3_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://bons014fxsklb" path="res://status_effect_parent.tscn" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://ffwedmd5ilrp" path="res://Art/animation/poison.png" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://px8pycbe1s55" path="res://Art/animation/harmfulwords.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://p5xe5eaxin54" path="res://Art/animation/banana_nuke2.0.png" id="5_bwjto"]
@@ -14,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://rpbatmud482t" path="res://Art/animation/tickle.png" id="10_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://d1amv8b62ari5" path="res://Art/animation/stink.png" id="10_nvl01"]
 [ext_resource type="Texture2D" uid="uid://bwgk3nylvtt7u" path="res://Art/animation/slash.png" id="11_bwjto"]
+[ext_resource type="Script" uid="uid://b8xv2yp4ph1r" path="res://new_scripts/battle/player_effects.gd" id="14_bwjto"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3lcn"]
 atlas = ExtResource("5_bwjto")
@@ -881,13 +881,15 @@ offset_bottom = 173.0
 size_flags_stretch_ratio = 2.0
 mouse_filter = 2
 
-[node name="status_effect" parent="player_sprites" unique_id=1779726787 instance=ExtResource("4_hqtel")]
-
 [node name="animations" type="AnimatedSprite2D" parent="player_sprites" unique_id=261416703]
 visible = false
 position = Vector2(23.999996, 13.000008)
 scale = Vector2(1.5078125, 1.5078125)
 sprite_frames = SubResource("SpriteFrames_op7ga")
-animation = &"banana_nuke"
+animation = &"pizza"
+
+[node name="player_effects" type="Node" parent="player_sprites" unique_id=605327480]
+script = ExtResource("14_bwjto")
+metadata/_custom_type_script = "uid://b8xv2yp4ph1r"
 
 [connection signal="animation_finished" from="player_sprites/animations" to="player_sprites/player_stats" method="_on_animations_animation_finished"]

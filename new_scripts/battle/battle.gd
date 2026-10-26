@@ -24,6 +24,7 @@ var cards_can_spawn:Array[CardData] = []
 
 @onready var ui:BattleUI = $"battle_ui"
 @onready var player_stats:IngameStats = $"player/player_sprites/player_stats"
+@onready var player_effects:PlayerEffects = $"player/player_sprites/player_effects"
 
 var victory:bool = false
 
@@ -80,6 +81,10 @@ func _update_card_ids() -> void:
 # set the statemachine to the enemy's turn
 func _enemies_turn():
 	current_state = States.ENEMY_TURN
+	for enemy:Enemy in %enemies.get_children():
+		enemy._attacked_player()
+		await get_tree().create_timer(0.4).timeout
+	Events.emit_signal("players_turn")
 
 func _process(_delta: float) -> void:
 	_check_victory()
@@ -105,3 +110,4 @@ func _check_victory():
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
 		ui.ending.show()
+
