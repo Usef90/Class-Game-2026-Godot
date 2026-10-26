@@ -14,7 +14,7 @@ var player_single_damage: float = 1
 var player_damage: float = 1
 var player_hitpoint_recovery: float = 0
 
-var attacks: Array =[]
+var cards:Array[CardData] = []
 var upgrades: Array = []
 
 var luck: int = 20 #percentage wise

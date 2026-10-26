@@ -1,7 +1,10 @@
 extends Node
 
+const START_LEVEL:Vector2i = Vector2i(-1,-1)
+
 var MusicVolume: float = -5
-var level: Array = []
+## x: layer, y: node index in layer
+var level:Vector2i = START_LEVEL
 
 var failure_counter = 0
 
@@ -29,10 +32,9 @@ var achievements = {
 	"oil_up": false,
 }
 
-#removes the current run we have
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_EXIT_TREE:
-		DirAccess.remove_absolute("res://new_scripts/temp/run.tscn")
 func _ready() -> void:
 	CardData.initialise()
+
+func end_run() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 

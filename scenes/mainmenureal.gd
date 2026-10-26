@@ -17,15 +17,15 @@ func _ready() -> void:
 	AudioManager.play("MainMenu")
 	AudioManager.changeVolume()
 
-
-
 func _on_button_pressed() -> void:
-	PlayerStats.attacks = []
+	PlayerStats.cards = []
+	for _i in 4: PlayerStats.cards.append(CardData.CARDS[CardData.SLICE])
+	for _i in 4: PlayerStats.cards.append(CardData.CARDS[CardData.ARMS_UP])
 	PlayerStats.upgrades = []
-	# TODO:
-	#Globals.level = 1
+	print(PlayerStats.cards)
+	Globals.level = Globals.START_LEVEL
 	PlayerStats.player_gold = 20
-	TransitionManager.play_transition("res://cutscene/begining_cutscene.tscn")
+	TransitionManager.play_transition("res://scenes/level_select.tscn")
 
 
 func _on_timer_timeout() -> void:

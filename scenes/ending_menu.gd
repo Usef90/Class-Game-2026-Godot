@@ -47,14 +47,7 @@ func _ready() -> void:
 	Globals.achievements["nuts"] = nut
 	Globals.achievements["fih"] = fih
 			
-func _on_texture_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	PlayerStats.player_gold =20
-	PlayerStats.attacks = []
-	PlayerStats.upgrades = []
-	# TODO:
-	#Globals.level = 1
-
+func _on_texture_button_button_down() -> void: Globals.end_run()
 
 func _on_replay_button_down() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_select.tscn")

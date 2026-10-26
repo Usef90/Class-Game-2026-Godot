@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w2f1v738jhln"]
 
-[ext_resource type="Script" uid="uid://2jkb6ag5mu55" path="res://new_scripts/shop_relic.gd" id="1_ntibs"]
+[ext_resource type="Script" uid="uid://2jkb6ag5mu55" path="res://new_scripts/shop/shop_relic.gd" id="1_ntibs"]
 [ext_resource type="PackedScene" uid="uid://c4mrjb5bkd3tj" path="res://new_scenes/relic.tscn" id="2_c4prd"]
 
 [node name="shop_relic" type="Control" unique_id=45026765]
