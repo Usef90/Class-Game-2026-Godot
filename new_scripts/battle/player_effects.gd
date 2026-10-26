@@ -18,10 +18,16 @@ func _ready() -> void:
 func _players_turn() -> void:
 	for effect in len(effect_types):
 		var effect_type:EffectData = effect_types[effect]
+		var effect_value:int = effect_values[effect]
 		match effect_type:
 			EffectData.PARRY:
 				if !EffectData.FORCEFIELD in effect_types:
 					remove_effect(EffectData.PARRY)
+			EffectData.STRENGTH_MOMENTUM:
+				_new_side_effects(EffectData.STRENGTH, effect_value)
+			EffectData.DELAYED_PARRY:
+				_new_side_effects(EffectData.PARRY, effect_value)
+				remove_effect(EffectData.DELAYED_PARRY)
 
 # start of enemy turn
 func _enemies_turn() -> void:
@@ -33,6 +39,8 @@ func _enemies_turn() -> void:
 				Events.damaged_player.emit(3, IngameStats.DamageAnim.RUST)
 			EffectData.BURN:
 				Events.damaged_player.emit(effect_value, IngameStats.DamageAnim.BURN)
+			EffectData.TEMP_STRENGTH:
+				remove_effect(EffectData.TEMP_STRENGTH)
 		if effect_type.diminishes: _new_side_effects(effect_type, -1)
 
 func remove_effect(effect:EffectData) -> void:

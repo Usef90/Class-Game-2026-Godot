@@ -46,6 +46,7 @@ func _take_damage(damage: float, damage_anim:DamageAnim) -> void:
 	if battle.player_effects.get_value(EffectData.VULNERABILITY): damage *= 1.3
 	if battle.player_effects.get_value(EffectData.RUST): damage /= 1.3
 	damage -= battle.player_effects.get_value(EffectData.PARRY) * 2
+	damage = max(ceil(damage), 0)
 	AudioManager.play_oneshot(damage_sfx)
 	incoming_damage = damage
 	animation_player.visible = true

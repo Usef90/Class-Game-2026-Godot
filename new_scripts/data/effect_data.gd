@@ -12,7 +12,7 @@ var diminishes:bool = false
 static var PARRY:EffectData = EffectData.new("Parry", "Reduces incoming damage by (x), lasts until end of enemy turn")
 static var STRENGTH:EffectData = EffectData.new("Strength", "Increases damage by 2(x), lasts until end of combat")
 static var TEMP_STRENGTH:EffectData = EffectData.new("Temporary Strength", "Increases damage by 2(x), lasts until end of your turn")
-static var STRENGTH_MOMENTUM:EffectData = EffectData.new("Strength Momentum", "At start of your turn: gain (x) strength, lasts until end of combat")
+static var STRENGTH_MOMENTUM:EffectData = EffectData.new("Strength Momentum", "At end of enemy turn: gain (x) strength, lasts until end of combat")
 static var BRACE:EffectData = EffectData.new("Brace", "Increases parry gained by 2(x), lasts until end of combat")
 static var RUST:EffectData = EffectData.new("Rust", "Reduce incoming damage by 30%, at end of your turn: take 3 damage, reduce count by 1") \
 			.with_diminishes()
