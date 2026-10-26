@@ -64,6 +64,7 @@ func _dialogue():
 	
 
 func _spawn_attack_choice():
+	@warning_ignore("unused_variable")
 	var choice = _spawn_attack_choice
 
 # player turn 

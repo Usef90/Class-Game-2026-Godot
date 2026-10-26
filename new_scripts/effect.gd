@@ -17,4 +17,3 @@ static var DELAYED_PARRY:Effect = Effect.new()
 func with_valueless() -> Effect:
 	valueless = true
 	return self
-

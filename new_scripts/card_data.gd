@@ -110,5 +110,3 @@ func with_player_effect(effect:Effect, value:int=0) -> CardData:
 	return self
 
 func repeat(_repeats:int) -> CardData: repeats = _repeats; return self
-
-
