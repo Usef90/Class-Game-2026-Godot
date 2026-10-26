@@ -168,6 +168,7 @@ theme_override_font_sizes/font_size = 32
 text = "Level select"
 
 [node name="ending" type="Panel" parent="." unique_id=788358738]
+visible = false
 layout_mode = 0
 offset_left = 387.0
 offset_top = 107.0

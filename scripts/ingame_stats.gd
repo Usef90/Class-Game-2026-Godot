@@ -1,7 +1,7 @@
 class_name IngameStats
 extends Node2D
 
-@onready var hp:ProgressBar = $hp
+@onready var hp:ProgressBar = $HP
 @onready var label:Label = $Label
 
 ## player in game stats

@@ -99,7 +99,6 @@ func purchase_card(card:ShopCard) -> void:
 	
 	card.queue_free()
 	
-	# TODO: rework player attacks to use new card system
 	PlayerStats.cards.append(data)
 	print("Successfully Bought! Global Inventory Contents: ", PlayerStats.cards)
 

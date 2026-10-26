@@ -6,8 +6,8 @@
 [node name="battle_card" type="Control" unique_id=1743070204]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 144.0
+offset_bottom = 201.0
 script = ExtResource("1_s6auu")
 metadata/_custom_type_script = "uid://c6qxy5vdaxbmx"
 

@@ -1,4 +1,5 @@
-extends Node
+class_name Battle
+extends Node2D
 
 ## The script in the main battle scene. 
 ## Handles the state of the current battles
@@ -7,6 +8,7 @@ extends Node
 var current_turn: int = 0
 
 var enemy_id_turn: int = 0
+
 @export var music_name: String
 @export var total_enemies:int = 1
 @export var ending_of_story: bool = false
@@ -21,11 +23,13 @@ enum States {PLAYER_TURN, ENEMY_TURN, DIALOGUE}
 var cards_can_spawn:Array[CardData] = []
 
 @onready var ui:BattleUI = $"battle_ui"
-@onready var player_stats:IngameStats = $"player/player_stats"
+@onready var player_stats:IngameStats = $"player/player_sprites/player_stats"
 
-var victory: bool = false
+var victory:bool = false
 
-var card_choice:CardData
+var hovered_enemy:Enemy = null
+var player_hovered:bool = false
+var enemies_hovered:bool = false
 
 func _ready() -> void:
 	AudioManager.play(music_name)
@@ -59,8 +63,9 @@ func _players_turn():
 		i.queue_free()
 	
 	for i in range(MAX_CARDS):
-		card_choice = cards_can_spawn.pop_at(randi_range(0, len(cards_can_spawn)-1))
-		ui.cards.add_child(BattleCard.create(card_choice, i))
+		ui.cards.add_child(BattleCard.create(
+			cards_can_spawn.pop_at(randi_range(0, len(cards_can_spawn)-1)), i
+		))
 	
 	player_stats.hp.value += PlayerStats.player_hitpoint_recovery
 	player_stats.label.text = str(int(player_stats.hp.value)) + "/" +str(int(player_stats.hp.max_value))
@@ -78,6 +83,12 @@ func _enemies_turn():
 
 func _process(_delta: float) -> void:
 	_check_victory()
+	var mouse_position:Vector2 = get_global_mouse_position()
+	player_hovered = %player.get_global_rect().has_point(mouse_position)
+	enemies_hovered = %enemies.get_global_rect().has_point(mouse_position)
+	hovered_enemy = null
+	for enemy in %enemies.get_children():
+		if enemy.get_global_rect().has_point(mouse_position): hovered_enemy = enemy
 
 func _check_victory():
 	# check if zero enemies are in the scene and show the vicotry scene
@@ -94,4 +105,3 @@ func _check_victory():
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
 		ui.ending.show()
-

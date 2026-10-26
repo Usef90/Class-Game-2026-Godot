@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://scenes/battle_ui.tscn" id="1_d3jkd"]
 [ext_resource type="Texture2D" path="res://Art/backgroundlevel1.png" id="1_u3awl"]
-[ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://scripts/battle_logic.gd" id="5_14jow"]
+[ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://new_scripts/battle/battle.gd" id="5_14jow"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="6_mvsps"]
 [ext_resource type="PackedScene" uid="uid://ck6ewcnl8sg60" path="res://enemies/enemy.tscn" id="7_jvkml"]
 [ext_resource type="Texture2D" path="res://Art/john_test.png" id="8_3w4mx"]

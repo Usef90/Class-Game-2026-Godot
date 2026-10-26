@@ -3,32 +3,47 @@
 [ext_resource type="Script" uid="uid://c4kqr3abi6wjh" path="res://scripts/enemy.gd" id="1_2sr7e"]
 [ext_resource type="AudioStream" uid="uid://cubqq5ioomlgc" path="res://sfx/enemydying.wav" id="2_a6vjd"]
 [ext_resource type="PackedScene" uid="uid://bkiarse6ln4qp" path="res://enemy_stats.tscn" id="3_4ytir"]
+[ext_resource type="Texture2D" uid="uid://cgq5juax45dja" path="res://Art/veganteacherUnaprove.png" id="3_07tka"]
 [ext_resource type="Script" uid="uid://c6buq5wvbn5nx" path="res://scripts/status.gd" id="3_orwns"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ytir"]
-size = Vector2(221, 206.5)
+[sub_resource type="SpriteFrames" id="SpriteFrames_3t1x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_07tka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="enemy" type="Node2D" unique_id=708042470]
+[node name="enemy" type="Control" unique_id=527393313]
+custom_minimum_size = Vector2(207, 228)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 207.0
+offset_bottom = 228.0
+size_flags_vertical = 4
 script = ExtResource("1_2sr7e")
 enemy_dying = ExtResource("2_a6vjd")
 attacks_name = Array[String](["kick", "punch", "poison"])
+metadata/_custom_type_script = "uid://c4kqr3abi6wjh"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2135140330]
+position = Vector2(100.5, 94)
+scale = Vector2(0.358, 0.34)
+sprite_frames = SubResource("SpriteFrames_3t1x0")
 
 [node name="enemy_stats" parent="." unique_id=1287744910 instance=ExtResource("3_4ytir")]
-
-[node name="touch_area" type="Area2D" parent="." unique_id=65239337]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="touch_area" unique_id=411885420]
-position = Vector2(4.5, -21.75)
-shape = SubResource("RectangleShape2D_4ytir")
+position = Vector2(79.00001, 120.00001)
 
 [node name="status" type="Node" parent="." unique_id=352096447]
 script = ExtResource("3_orwns")
 
 [node name="status_effect_viewer" type="HFlowContainer" parent="." unique_id=292000366]
+layout_mode = 0
 offset_left = -62.0
 offset_top = 102.0
 offset_right = 93.0
 offset_bottom = 173.0
 size_flags_stretch_ratio = 2.0
-
-[connection signal="mouse_entered" from="touch_area" to="." method="_on_area_2d_mouse_entered"]

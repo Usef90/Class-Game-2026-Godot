@@ -19,4 +19,3 @@ func _ready() -> void:
 	description.text = data.description
 	image.texture = data.image
 	cost.text = str(data.energy_cost)
-
