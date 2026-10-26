@@ -1,8 +1,7 @@
-extends Node2D
+class_name Enemy
+extends Control
 ## Script that handles the enemy attacks
 ## and adds status to effect
-
-class_name enemy
 
 @export var death_particle: String = "blood"
 @export var enemy_dying: AudioStream
@@ -19,16 +18,13 @@ var current_attack_choice :int = -1
 var attacks:Array[Dictionary] = []
 
 var can_attack: bool = false
-
 var damage_multiplier: float = 1
-
 var playing_animation = false
 
 func _ready() -> void:
 	Events.connect("players_turn",allow_attack)
 	Events.connect("enemies_turn",_attacked_player)
-	Events.connect("give_side_effects_to_enemies", _add_status)
-	Events.connect("id_effect_chosen", _add_status_id)
+	Events.give_side_effects_to_enemies.connect(_add_status)
 	
 	for i in attacks_name:
 		attacks.append(EnemyAttacks.get(i))
@@ -36,26 +32,13 @@ func _ready() -> void:
 
 func allow_attack():
 	playing_animation = false
-	
-# when enemy get affected by a single target card
-func _add_status_id(targeted_id: int,status:String):
-	if targeted_id != id:
-		return
-		
-	if $enemy_stats.get_node("HP").value == 0:
-		return
-	var type = ListEnemyStatusEffects.get(status).instantiate()
-	type.name = status
-	$status.add_child(type, true)
 
-# when enemy get affected by aoe
-func _add_status(status:String):
+# when enemy get affected by status
+func _add_status(status:EffectData, value:int, which:Enemy):
+	if which != self and which != null: return
 	if $enemy_stats.get_node("HP").value == 0:
 		return
-	var type = ListEnemyStatusEffects.get(status).instantiate()
-	type.name = status
-	$status.add_child(type, true)
-	
+	# todo: status
 	
 # enemy attack script
 # enemy attacks when attack_id == their id

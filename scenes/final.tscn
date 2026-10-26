@@ -1,50 +1,37 @@
 [gd_scene format=3 uid="uid://dy0fvo4kx1jct"]
 
-[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://ui.tscn" id="2_30t23"]
-[ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://scripts/battle_logic.gd" id="3_6b1qv"]
+[ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://scenes/battle_ui.tscn" id="2_30t23"]
+[ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://new_scripts/battle/battle.gd" id="3_6b1qv"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="4_1rxmq"]
 [ext_resource type="PackedScene" uid="uid://ck6ewcnl8sg60" path="res://enemies/enemy.tscn" id="5_6b7v6"]
-[ext_resource type="Texture2D" uid="uid://cgq5juax45dja" path="res://Art/veganteacherUnaprove.png" id="6_vf3a0"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_30t23"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_vf3a0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="mango" type="Node2D" unique_id=1916832371]
+[node name="battle" type="Node2D" unique_id=1916832371]
+script = ExtResource("3_6b1qv")
 
 [node name="background2" type="Sprite2D" parent="." unique_id=1796574471]
 position = Vector2(638, 364)
 scale = Vector2(2.0218751, 2.0218751)
 
-[node name="UI" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
-
-[node name="BattleLogic" type="Node" parent="." unique_id=1136221329]
-script = ExtResource("3_6b1qv")
-music_name = "FinalBossPleaseGiveInput"
-achievement_will_gain = "mango"
+[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
 
 [node name="player" parent="." unique_id=294404824 instance=ExtResource("4_1rxmq")]
-position = Vector2(232, 291)
+unique_name_in_owner = true
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 472.0
+offset_bottom = 448.0
 
-[node name="enemies" type="Node2D" parent="." unique_id=1413379743]
-position = Vector2(835, 394)
+[node name="enemies" type="HBoxContainer" parent="." unique_id=424860742]
+unique_name_in_owner = true
+offset_left = 509.0
+offset_top = 136.0
+offset_right = 1227.0
+offset_bottom = 459.0
+alignment = 1
 
 [node name="Mango Mustard" parent="enemies" unique_id=708042470 instance=ExtResource("5_6b7v6")]
-position = Vector2(126, -92)
+layout_mode = 2
 attacks_name = Array[String](["evil_scientist_attack", "punch", "flat_earth", "kick", "nuclear_pizza"])
 setted_HP = 6.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemies/Mango Mustard" unique_id=1450351235]
-position = Vector2(27.922878, -24.366577)
-rotation = -0.005377153
-scale = Vector2(0.36912078, 0.40656182)
-sprite_frames = SubResource("SpriteFrames_30t23")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1824490579]

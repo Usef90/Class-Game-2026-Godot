@@ -4,8 +4,6 @@ extends Control
 ## shop scene thingy kallum coded this since I been on this to add cards I 
 ## kinda know how it wokrs
 
-@export var card_scene: PackedScene = preload("res://ShopStuff/shop_item_card.tscn")
-
 @onready var money_text = $MarginContainer/MoneyCounter/MoneyText
 @onready var top_fridge = $TopFridge        # Relics here
 @onready var bottom_fridge = $BottomFridge  # Cards here
@@ -101,9 +99,8 @@ func purchase_card(card:ShopCard) -> void:
 	
 	card.queue_free()
 	
-	# TODO: rework player attacks to use new card system
-	#PlayerStats.attacks.append(data)
-	print("Successfully Bought! Global Inventory Contents: ", PlayerStats.attacks)
+	PlayerStats.cards.append(data)
+	print("Successfully Bought! Global Inventory Contents: ", PlayerStats.cards)
 
 func _on_reroll_pressed() -> void:
 	if PlayerStats.player_gold >= reroll_cost:
@@ -115,5 +112,5 @@ func _on_reroll_pressed() -> void:
 		generate_entire_shop()
 
 func _on_next_stage_pressed() -> void:
-	print("Transitioning to encounter with items: ", PlayerStats.attacks)
+	print("Transitioning to encounter with items: ", PlayerStats.cards)
 	TransitionManager.play_transition("res://scenes/level_select.tscn")

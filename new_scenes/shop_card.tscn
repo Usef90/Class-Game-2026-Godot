@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmftqd3i0wjk2"]
 
-[ext_resource type="Script" uid="uid://bmev8xs1vkafb" path="res://new_scripts/shop_card.gd" id="1_i4jq8"]
+[ext_resource type="Script" uid="uid://bmev8xs1vkafb" path="res://new_scripts/shop/shop_card.gd" id="1_i4jq8"]
 [ext_resource type="PackedScene" uid="uid://24p4uncg00vj" path="res://new_scenes/card.tscn" id="2_xyuu5"]
 
 [node name="shop_card" type="Control" unique_id=700191682]

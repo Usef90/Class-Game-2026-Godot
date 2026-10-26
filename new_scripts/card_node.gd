@@ -1,5 +1,5 @@
 class_name CardNode
-extends Node2D
+extends Control
 
 var data:CardData
 
@@ -19,4 +19,3 @@ func _ready() -> void:
 	description.text = data.description
 	image.texture = data.image
 	cost.text = str(data.energy_cost)
-

@@ -14,3 +14,4 @@ static func create(data:CardData, _shop:Shop) -> ShopCard:
 func _ready() -> void:
 	buy_button.pressed.connect(func(): shop.purchase_card(self))
 	buy_button.text = "$"+str(card.data.price)
+
