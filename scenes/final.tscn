@@ -12,8 +12,6 @@ script = ExtResource("3_6b1qv")
 position = Vector2(638, 364)
 scale = Vector2(2.0218751, 2.0218751)
 
-[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
-
 [node name="player" parent="." unique_id=294404824 instance=ExtResource("4_1rxmq")]
 unique_name_in_owner = true
 offset_left = 72.0
@@ -32,6 +30,7 @@ alignment = 1
 [node name="Mango Mustard" parent="enemies" unique_id=708042470 instance=ExtResource("5_6b7v6")]
 layout_mode = 2
 attacks_name = Array[String](["evil_scientist_attack", "punch", "flat_earth", "kick", "nuclear_pizza"])
-setted_HP = 6.0
+
+[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
 
 [node name="background" type="Sprite2D" parent="." unique_id=1824490579]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://e7l6jqogf4jg"]
+
+[ext_resource type="Texture2D" uid="uid://vdxuin8tw8pd" path="res://Art/status effects/rage.png" id="1_1urvn"]
+[ext_resource type="Script" uid="uid://daevydkuolgaq" path="res://new_scripts/battle/status_effect_icon.gd" id="1_l8mdc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iymfc"]
+
+[node name="StatusEffectIcon" type="TextureRect" unique_id=180166542]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1urvn")
+script = ExtResource("1_l8mdc")
+
+[node name="value" type="Label" parent="." unique_id=1213631066]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 42.0
+offset_bottom = 53.0
+text = "3"
+label_settings = SubResource("LabelSettings_iymfc")
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
