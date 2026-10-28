@@ -24,4 +24,3 @@ func _init(_name: String, _description:String) -> void:
 func with_valueless() -> EffectData:
 	valueless = true
 	return self
-
