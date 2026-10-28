@@ -21,7 +21,7 @@ func _ready() -> void:
 	$"../victory".visible = false
 	
 # this prevents the player to end turn during the enemy attack animations
-func playing_animation():
+func playing_animation(_a, _b):
 	animation_playing = true
 
 func stop_animation():

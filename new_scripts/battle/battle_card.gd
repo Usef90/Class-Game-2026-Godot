@@ -57,8 +57,8 @@ func act() -> void:
 			else: total_damage += 2*strength
 		
 		match data.target:
-			CardData.Target.ENEMY: Events.damaged_enemy.emit(total_damage, battle.hovered_enemy)
-			CardData.Target.ENEMIES: Events.damaged_enemy.emit(total_damage, null)
+			CardData.Target.ENEMY: Events.damaged_enemy.emit(total_damage, IngameStats.DamageAnim.HIT, battle.hovered_enemy)
+			CardData.Target.ENEMIES: Events.damaged_enemy.emit(total_damage, IngameStats.DamageAnim.HIT, null)
 		
 		for effect in len(data.effect_types):
 			var effect_type:EffectData = data.effect_types[effect]

@@ -15,7 +15,6 @@ var player_damge_multiplier
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	HP = get_parent().setted_HP
-	print(HP)
 	$HP.max_value = HP
 	$HP.value = HP
 	$Label.text = str(int($HP.value)) + "/" +str(int($HP.max_value))

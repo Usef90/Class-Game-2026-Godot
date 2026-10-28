@@ -7,12 +7,25 @@ extends Node
 
 var effect_types:Array[EffectData] = []
 var effect_values:Array[int] = []
+var effects_changed:bool = false
 
 @onready var status_effect_viewer = $"../status_effect_viewer"
 func _ready() -> void:
 	Events.players_turn.connect(_players_turn)
 	Events.enemies_turn.connect(_enemies_turn)
 	Events.connect("give_side_effects_to_player", _new_side_effects)
+
+func _process(_delta:float) -> void:
+	if effects_changed:
+		effects_changed = false
+		for child in status_effect_viewer.get_children():
+			status_effect_viewer.remove_child(child)
+			child.queue_free()
+		for effect in len(effect_types):
+			var icon:StatusEffectIcon = preload("res://new_scenes/status_effect_icon.tscn").instantiate()
+			icon.effect = effect_types[effect]
+			icon.value = effect_values[effect]
+			status_effect_viewer.add_child(icon)
 
 # start of player turn
 func _players_turn() -> void:
@@ -49,19 +62,14 @@ func _enemies_turn() -> void:
 		if effect_type.diminishes: effect_changes.append([effect_type, -1])
 	for change in effect_changes: _new_side_effects(change[0], change[1])
 
-func remove_effect(effect:EffectData) -> void:
-	var found:int = effect_types.find(effect)
-	if found != -1:
-		effect_types.remove_at(found)
-		effect_values.remove_at(found)
-
 func get_value(effect:EffectData) -> int:
 	var found:int = effect_types.find(effect)
 	return effect_values[found] if found != -1 else 0
 
 func _new_side_effects(effect:EffectData, value:int) -> void:
 	if effect == EffectData.PARRY: value += get_value(EffectData.BRACE) * 2
-
+	if value == 0: return
+	effects_changed = true
 	var found:int = effect_types.find(effect)
 	if found == -1:
 		effect_types.append(effect)

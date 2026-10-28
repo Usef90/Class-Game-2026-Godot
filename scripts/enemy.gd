@@ -45,9 +45,6 @@ func _attacked_player() -> void:
 	sentence = name+ " uses " + attacks[current_attack_choice].get("name")
 	
 
-	var all_effects = attacks[current_attack_choice]["status_effects"]
-	for effect in all_effects: 
-		Events.emit_signal("give_side_effects", effect)
 	if attacks[current_attack_choice]["buff"] != null:
 		var all_buffs = attacks[current_attack_choice]["buff"]
 		for effect in all_buffs: 

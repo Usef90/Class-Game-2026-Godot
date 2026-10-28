@@ -888,7 +888,7 @@ scale = Vector2(1.5078125, 1.5078125)
 sprite_frames = SubResource("SpriteFrames_op7ga")
 animation = &"pizza"
 
-[node name="player_effects" type="Node" parent="player_sprites" unique_id=605327480]
+[node name="player_effects" type="Node" parent="player_sprites" unique_id=551158576]
 script = ExtResource("14_bwjto")
 metadata/_custom_type_script = "uid://b8xv2yp4ph1r"
 

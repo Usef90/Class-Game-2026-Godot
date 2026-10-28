@@ -29,7 +29,7 @@ signal id_effect_chosen(id, effect)
 
 signal update_display(sentence)
 
-signal show_status_text(text)
+signal show_status_text(status:EffectData)
 signal hide_status_text
 @warning_ignore_restore("unused_signal")
 
