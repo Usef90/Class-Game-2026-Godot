@@ -67,3 +67,4 @@ static func generate_map() -> LevelSelectMap:
 		elif layer_nodes > MIN_NODES_PER_LAYER:
 			layer_nodes -= 1
 	return map
+

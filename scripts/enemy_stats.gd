@@ -14,7 +14,7 @@ var player_damge_multiplier
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	HP = get_parent().setted_HP
+	HP = 40 * pow(1.2, LevelSelectMap.LAYERS - Globals.level.x - 1)
 	$HP.max_value = HP
 	$HP.value = HP
 	$Label.text = str(int($HP.value)) + "/" +str(int($HP.max_value))
@@ -31,4 +31,5 @@ func _take_damage(damage: int, _anim:IngameStats.DamageAnim, which:Enemy) -> voi
 		else:
 			Explosions.spawn(get_parent().global_position)
 			AudioManager.play_oneshot(get_parent().enemy_dying)
+		get_parent().get_parent().remove_child(get_parent())
 		get_parent().queue_free()

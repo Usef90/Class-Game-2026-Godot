@@ -36,10 +36,17 @@ func _ready() -> void:
 	AudioManager.play(music_name)
 	cards_can_spawn = PlayerStats.cards.duplicate()
 	ui.cards.child_order_changed.connect(_update_card_ids)
-	# giving enemies some unique ids
-	for enemy in %enemies.get_children():
-		enemy.id = num_enemies
+
+	num_enemies = 1
+	if randi_range(0,9) < 3:
 		num_enemies += 1
+		if randi_range(0,2) < 1:
+			num_enemies += 1
+	# giving enemies some unique ids
+	for enemy_id in num_enemies:
+		var enemy:Enemy = preload("res://enemies/enemy.tscn").instantiate()
+		%enemies.add_child(enemy)
+		enemy.id = enemy_id
 	
 	current_state = States.PLAYER_TURN
 	ui.victory.hide()
@@ -85,7 +92,7 @@ func _enemies_turn():
 	current_state = States.ENEMY_TURN
 	for enemy:Enemy in %enemies.get_children():
 		enemy._attacked_player()
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(1.2).timeout
 	Events.emit_signal("players_turn")
 
 func _process(_delta: float) -> void:
