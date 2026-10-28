@@ -31,19 +31,20 @@ const POSITION_OF_CARDS:Array = [
 ]
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") and !selected_card and get_global_rect().has_point(get_global_mouse_position()):
+	if battle.current_state == Battle.States.PLAYER_TURN and event.is_action_pressed("click") and !selected_card and get_global_rect().has_point(get_global_mouse_position()):
 		selected_card = true
 		
-	if event.is_action_released("click") and selected_card and can_attack:
-		var acted:bool = false
-		match data.target:
-			CardData.Target.ENEMY: acted = !!battle.hovered_enemy
-			CardData.Target.ENEMIES: acted = battle.enemies_hovered
-			CardData.Target.PLAYER: acted = battle.player_hovered
-		if acted:
-			act()
-			queue_free()
-		else: selected_card = false
+	if event.is_action_released("click"):
+		if selected_card and can_attack:
+			var acted:bool = false
+			match data.target:
+				CardData.Target.ENEMY: acted = !!battle.hovered_enemy
+				CardData.Target.ENEMIES: acted = battle.enemies_hovered
+				CardData.Target.PLAYER: acted = battle.player_hovered
+			if acted:
+				act()
+				queue_free()
+		selected_card = false
 
 func act() -> void:
 	Events.emit_signal("reduce_energy_by", data.energy_cost)

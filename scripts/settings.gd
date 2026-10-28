@@ -8,6 +8,8 @@ var level:Vector2i = START_LEVEL
 
 var failure_counter = 0
 
+var map:LevelSelectMap
+
 var achievements = {
 	"john": false,
 	"vegan": false,

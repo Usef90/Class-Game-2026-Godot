@@ -6,7 +6,7 @@ const NODE:PackedScene = preload("res://new_scenes/level_select_node.tscn")
 const NORMAL_NODE_TYPES:int = 5
 enum NodeType { RANDOM_ENCOUNTER, TREASURE_CHEST, SMALL_MONSTER, ELITE_MONSTER, CAMPFIRE, FINAL_BOSS }
 
-var map:LevelSelectMap
+static var map:LevelSelectMap
 ## Array[Array[LevelSelectNode]]
 ## each layer is an array
 var nodes:Array[Array]
@@ -32,8 +32,8 @@ func build_map() -> void:
 			node_position.x += NODE_SIZE.x
 			layer_nodes.append(node)
 			$"map".add_child(node)
-			if Globals.level == Vector2i(-1,-1) and layer == LevelSelectMap.LAYERS-1:
-				node.make_selectable()
+			if layer == LevelSelectMap.LAYERS-1:
+				if Globals.level == Vector2i(-1,-1): node.make_selectable()
 				reachable_nodes.append(node.index)
 		node_position.y += NODE_SIZE.y
 		nodes.append(layer_nodes)
