@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmmfp46wm5ufn"
+path="res://.godot/imported/slice.mp3-b0e3c1ef61ba99b603a7e5598d47b5dd.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects NEW/slice.mp3"
+dest_files=["res://.godot/imported/slice.mp3-b0e3c1ef61ba99b603a7e5598d47b5dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
