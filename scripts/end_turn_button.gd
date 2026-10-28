@@ -41,7 +41,7 @@ func _on_button_down() -> void:
 	enemy_id_turn +=1
 	if enemy_id_turn > total_enemies:
 		enemy_id_turn = 0
-	Events.emit_signal("enemies_turn", enemy_id_turn)
+	Events.enemies_turn.emit()
 
 	
 # buttons connections that I connected to this script cuz

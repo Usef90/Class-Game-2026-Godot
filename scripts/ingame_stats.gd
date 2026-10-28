@@ -8,7 +8,7 @@ extends Node2D
 
 var HP: float
 
-enum DamageAnim { RUST, BURN }
+enum DamageAnim { HIT, RUST, BURN }
 
 var enemy_thats_attacking: String
 

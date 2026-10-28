@@ -16,21 +16,26 @@ func _ready() -> void:
 
 # start of player turn
 func _players_turn() -> void:
+	# Array[EffectData, int (value)]
+	var effect_changes:Array[Array] = []
 	for effect in len(effect_types):
 		var effect_type:EffectData = effect_types[effect]
 		var effect_value:int = effect_values[effect]
 		match effect_type:
 			EffectData.PARRY:
 				if !EffectData.FORCEFIELD in effect_types:
-					remove_effect(EffectData.PARRY)
+					effect_changes.append([EffectData.PARRY, -9999999999])
 			EffectData.STRENGTH_MOMENTUM:
-				_new_side_effects(EffectData.STRENGTH, effect_value)
+				effect_changes.append([EffectData.STRENGTH, effect_value])
 			EffectData.DELAYED_PARRY:
-				_new_side_effects(EffectData.PARRY, effect_value)
-				remove_effect(EffectData.DELAYED_PARRY)
+				effect_changes.append([EffectData.PARRY, effect_value])
+				effect_changes.append([EffectData.DELAYED_PARRY, -9999999999])
+	for change in effect_changes: _new_side_effects(change[0], change[1])
 
 # start of enemy turn
 func _enemies_turn() -> void:
+	# Array[EffectData, int (value)]
+	var effect_changes:Array[Array] = []
 	for effect in len(effect_types):
 		var effect_type:EffectData = effect_types[effect]
 		var effect_value:int = effect_values[effect]
@@ -40,8 +45,9 @@ func _enemies_turn() -> void:
 			EffectData.BURN:
 				Events.damaged_player.emit(effect_value, IngameStats.DamageAnim.BURN)
 			EffectData.TEMP_STRENGTH:
-				remove_effect(EffectData.TEMP_STRENGTH)
-		if effect_type.diminishes: _new_side_effects(effect_type, -1)
+				effect_changes.append([EffectData.TEMP_STRENGTH, -9999999999])
+		if effect_type.diminishes: effect_changes.append([effect_type, -1])
+	for change in effect_changes: _new_side_effects(change[0], change[1])
 
 func remove_effect(effect:EffectData) -> void:
 	var found:int = effect_types.find(effect)
@@ -64,4 +70,3 @@ func _new_side_effects(effect:EffectData, value:int) -> void:
 	if effect_values[found] <= 0:
 		effect_types.remove_at(found)
 		effect_values.remove_at(found)
-

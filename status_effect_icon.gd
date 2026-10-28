@@ -8,7 +8,12 @@ class_name status_effect_icon
 var text = ""
 var is_hovered: bool = false
 
-var effect_name: String=""
+var effect:EffectData
+var value:int
+
+func _ready() -> void:
+	texture = effect.icon
+	$value.text = str(value)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and not is_hovered:

@@ -23,8 +23,6 @@ var playing_animation = false
 
 func _ready() -> void:
 	Events.connect("players_turn",allow_attack)
-	Events.give_side_effects_to_enemies.connect(_add_status)
-	
 	for i in attacks_name:
 		attacks.append(EnemyAttacks.get(i))
 		
@@ -32,13 +30,6 @@ func _ready() -> void:
 func allow_attack():
 	playing_animation = false
 
-# when enemy get affected by status
-func _add_status(status:EffectData, value:int, which:Enemy) -> void:
-	if which != self and which != null: return
-	if $enemy_stats.get_node("HP").value == 0:
-		return
-	# todo: status
-	
 # enemy attack script
 # enemy attacks when attack_id == their id
 func _attacked_player() -> void:
@@ -51,7 +42,7 @@ func _attacked_player() -> void:
 	
 	var damage =(attacks[current_attack_choice].get("damage")) * damage_multiplier
 	
-	sentence = name+ " use " + attacks[current_attack_choice].get("name")
+	sentence = name+ " uses " + attacks[current_attack_choice].get("name")
 	
 
 	var all_effects = attacks[current_attack_choice]["status_effects"]
@@ -60,9 +51,9 @@ func _attacked_player() -> void:
 	if attacks[current_attack_choice]["buff"] != null:
 		var all_buffs = attacks[current_attack_choice]["buff"]
 		for effect in all_buffs: 
-			Events.emit_signal("give_side_effects_to_enemies", effect)
+			Events.give_side_effects_to_enemies.emit(effect)
 	if get_tree() == null:
 		return
 	Events.emit_signal("update_display", sentence)
-	Events.emit_signal("damaged_player", damage, attacks[current_attack_choice].get("animation"), name)
+	Events.damaged_player.emit(damage, IngameStats.DamageAnim.HIT)
 

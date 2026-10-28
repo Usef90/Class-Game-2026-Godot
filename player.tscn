@@ -876,8 +876,8 @@ position = Vector2(0, 2)
 layout_mode = 0
 offset_left = -62.0
 offset_top = 102.0
-offset_right = 93.0
-offset_bottom = 173.0
+offset_right = 123.0
+offset_bottom = 169.0
 size_flags_stretch_ratio = 2.0
 mouse_filter = 2
 

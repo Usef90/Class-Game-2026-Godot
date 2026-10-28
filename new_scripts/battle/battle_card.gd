@@ -19,7 +19,6 @@ var can_attack = false
 
 var selected_card: bool = false
 var mouse_is_incard: bool = false
-var luck: int = 0
 
 var card_number: int =0
 const POSITION_OF_CARDS:Array = [
@@ -72,6 +71,7 @@ func act() -> void:
 						_: Events.give_side_effects_to_player.emit(effect_type, effect_value)
 				CardData.Target.ENEMY: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, battle.hovered_enemy)
 				CardData.Target.ENEMIES: Events.give_side_effects_to_enemies.emit(effect_type, effect_value, null)
+	if data.exhaust: battle.exhaust(data)
 
 func _process(_delta: float) -> void:
 	# check if thee card is played in the play field

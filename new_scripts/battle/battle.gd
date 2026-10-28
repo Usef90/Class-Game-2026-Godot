@@ -46,7 +46,6 @@ func _ready() -> void:
 	Events.players_turn.connect(_players_turn)
 	Events.enemies_turn.connect(_enemies_turn)
 	Events.dialogue.connect(_dialogue)
-	Events.check_victory_conditions.connect(_check_victory)
 	
 	_players_turn()
 
@@ -57,6 +56,7 @@ func _dialogue():
 # removes the hand and just add 6 more new cards
 # cards drawn are not random
 func _players_turn():
+	var cards_pool:Array[CardData] = cards_can_spawn.duplicate()
 	current_state = States.PLAYER_TURN
 	current_turn += 1
 	
@@ -65,11 +65,13 @@ func _players_turn():
 	
 	for i in range(MAX_CARDS):
 		ui.cards.add_child(BattleCard.create(
-			cards_can_spawn.pop_at(randi_range(0, len(cards_can_spawn)-1)), i
+			cards_pool.pop_at(randi_range(0, len(cards_pool)-1)), i
 		))
 	
-	player_stats.hp.value += PlayerStats.player_hitpoint_recovery
 	player_stats.label.text = str(int(player_stats.hp.value)) + "/" +str(int(player_stats.hp.max_value))
+
+func exhaust(card:CardData) -> void:
+	cards_can_spawn.erase(card)
 
 # clean up the id of the cards
 func _update_card_ids() -> void:
@@ -100,9 +102,7 @@ func _check_victory():
 	if %enemies.get_child_count() == 0 and !victory and !ending_of_story:
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
-		@warning_ignore("integer_division")
-		victory_gold += int(PlayerStats.luck/5)
-		PlayerStats.player_gold +=  victory_gold
+		PlayerStats.player_gold += victory_gold
 		ui.victory.show()
 		ui.victory.get_node("stuff you gain").text = "Gain: " + str(victory_gold) + " gold" + "
 		Total gold: " + str(PlayerStats.player_gold)  
@@ -110,4 +110,3 @@ func _check_victory():
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
 		ui.ending.show()
-

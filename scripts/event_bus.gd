@@ -8,10 +8,8 @@ signal out_attack_area
 
 signal update_id
 
-signal check_victory_conditions
-
 ## if which is null then it damages all
-signal damaged_enemy(damage:int, which:Enemy)
+signal damaged_enemy(damage:int, anim:IngameStats.DamageAnim, which:Enemy)
 signal damaged_player(damage:int, anim:IngameStats.DamageAnim)
 
 signal reduce_energy_by(cost)

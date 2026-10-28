@@ -9,6 +9,8 @@ var valueless:bool = false
 ## whether or not an effect decreases by 1 at the end of your turn
 var diminishes:bool = false
 
+var icon:Texture2D
+
 static var PARRY:EffectData = EffectData.new("Parry", "Reduces incoming damage by (x), lasts until end of enemy turn")
 static var STRENGTH:EffectData = EffectData.new("Strength", "Increases damage by 2(x), lasts until end of combat")
 static var TEMP_STRENGTH:EffectData = EffectData.new("Temporary Strength", "Increases damage by 2(x), lasts until end of your turn")
