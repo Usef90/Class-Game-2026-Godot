@@ -34,4 +34,3 @@ signal update_display(sentence)
 signal show_status_text(text)
 signal hide_status_text
 @warning_ignore_restore("unused_signal")
-

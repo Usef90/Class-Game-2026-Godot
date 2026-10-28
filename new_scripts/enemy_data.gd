@@ -9,6 +9,11 @@ enum actions {HEAL, DAMAGE, BUFF, DEBUFF}
 
 var drip: Texture2D
 
+
+func _increase_damage():
+	base_damage *= 1.2
+	base_damage = int(base_damage)
+
 func _choose_random_attacks():
 	attacks.append(actions.DAMAGE)
 	var attack_choices = randi_range(1, 3)

@@ -1,8 +1,11 @@
 class_name Shop
 extends Control
 
-## shop scene thingy kallum coded this since I been on this to add cards I 
+## shop scene thingy kallum coded this since I been on this to add cards I
 ## kinda know how it wokrs
+
+const DISCOUNT_PERCENT = 25
+var is_discounted = false
 
 @onready var money_text = $MarginContainer/MoneyCounter/MoneyText
 @onready var top_fridge = $TopFridge        # Relics here
@@ -16,7 +19,10 @@ func available_cards() -> Array[CardData]:
 	var cards:Array[CardData] = []
 	for card in CardData.CARDS:
 		# if condition
+		if is_discounted:
+			card.price = (card.price/4)
 		cards.append(card)
+
 	return cards
 
 func available_relics() -> Array[RelicData]:
