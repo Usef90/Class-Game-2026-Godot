@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://duds1vu28ckro"]
+
+[ext_resource type="Script" uid="uid://74gx5c2wsn1n" path="res://new_scripts/level_select/level_select_node.gd" id="1_2f1mu"]
+
+[node name="level_select_node" type="Control" unique_id=985645905]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_2f1mu")
+metadata/_custom_type_script = "uid://74gx5c2wsn1n"
+
+[node name="lines" type="Node2D" parent="." unique_id=1081783936]
+z_index = -1
+
+[node name="button" type="Button" parent="." unique_id=1299200072]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+text = "bad guy"
+autowrap_mode = 2
+
+[connection signal="button_down" from="button" to="." method="_on_button_down"]

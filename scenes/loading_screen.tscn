@@ -41,12 +41,14 @@ _data = {
 &"transition": SubResource("Animation_hprjd")
 }
 
-[node name="LoadingScreen" type="CanvasLayer" unique_id=2058789085 node_paths=PackedStringArray("animation_player")]
-layer = 10
+[node name="LoadingScreen" type="Control" unique_id=1536452714 node_paths=PackedStringArray("animation_player")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ep5rh")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Panel" type="Panel" parent="." unique_id=601025737]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

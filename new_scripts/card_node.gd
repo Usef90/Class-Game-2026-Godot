@@ -1,5 +1,5 @@
 class_name CardNode
-extends Node2D
+extends Control
 
 var data:CardData
 

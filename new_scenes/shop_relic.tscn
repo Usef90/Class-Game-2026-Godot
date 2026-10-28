@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://w2f1v738jhln"]
+
+[ext_resource type="Script" uid="uid://2jkb6ag5mu55" path="res://new_scripts/shop/shop_relic.gd" id="1_ntibs"]
+[ext_resource type="PackedScene" uid="uid://c4mrjb5bkd3tj" path="res://new_scenes/relic.tscn" id="2_c4prd"]
+
+[node name="shop_relic" type="Control" unique_id=45026765]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ntibs")
+metadata/_custom_type_script = "uid://2jkb6ag5mu55"
+
+[node name="relic" parent="." unique_id=519949114 instance=ExtResource("2_c4prd")]
+
+[node name="buy_button" type="Button" parent="." unique_id=956547880]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 147.0
+offset_right = 114.0
+offset_bottom = 183.0
+text = "Price"

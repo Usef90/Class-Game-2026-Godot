@@ -6,20 +6,19 @@ var animation_playing: bool = false
 
 var enemy_id_turn: int
 @onready var card_in_hand: Control
-var battle_logic_script: Node
-var enemy_list: Node2D
+@onready var battle:Battle = $"/root/battle"
+var enemy_list: HBoxContainer
 var total_enemies: int
 
 
 func _ready() -> void:
-	battle_logic_script = $"../../BattleLogic"
 	card_in_hand = get_parent().get_node("cards")
 	enemy_list = $"../../enemies"
 	total_enemies = enemy_list.get_child_count() -1
 	enemy_id_turn = total_enemies
 	Events.connect("damaged_player", playing_animation)
 	Events.connect("players_turn", stop_animation)
-	$"../You won".visible = false
+	$"../victory".visible = false
 	
 # this prevents the player to end turn during the enemy attack animations
 func playing_animation():
@@ -30,7 +29,7 @@ func stop_animation():
 
 
 func _on_button_down() -> void:
-	if battle_logic_script.current_state != battle_logic_script.States.players_turn:
+	if battle.current_state != Battle.States.PLAYER_TURN:
 		return
 	if animation_playing:
 		return
