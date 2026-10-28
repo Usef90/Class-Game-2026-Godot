@@ -16,8 +16,6 @@ metadata/_custom_type_script = "uid://bmev8xs1vkafb"
 
 [node name="card" parent="." unique_id=293760320 instance=ExtResource("2_xyuu5")]
 layout_mode = 0
-offset_left = -7.6293945e-06
-offset_top = 0.0
 offset_right = 250.0
 offset_bottom = 350.0
 

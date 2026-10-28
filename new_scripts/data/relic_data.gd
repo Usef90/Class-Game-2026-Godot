@@ -21,4 +21,3 @@ func _init(_name: String, _description:String) -> void:
 	name = _name
 	description = _description
 	RELICS.append(self)
-
