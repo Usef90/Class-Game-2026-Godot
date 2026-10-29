@@ -13,69 +13,47 @@ extends Control
 
 @export var attacks_name:Array[String] = []
 @export var def_stats: int = 1
-@export var setted_HP: float = 50
 var current_attack_choice :int = -1
 var attacks:Array[Dictionary] = []
 
 var can_attack: bool = false
-var damage_multiplier: float = 1
 var playing_animation = false
+
+var damage: int = 6
+var buffed_last_turn:bool = false
+var debuffed_last_turn:bool = false
+enum Choices { ATTACK, BUFF, DEBUFF }
 
 func _ready() -> void:
 	Events.connect("players_turn",allow_attack)
-	Events.connect("enemies_turn",_attacked_player)
-	Events.give_side_effects_to_enemies.connect(_add_status)
-	
 	for i in attacks_name:
 		attacks.append(EnemyAttacks.get(i))
-		
 
 func allow_attack():
 	playing_animation = false
 
-# when enemy get affected by status
-func _add_status(status:EffectData, value:int, which:Enemy):
-	if which != self and which != null: return
-	if $enemy_stats.get_node("HP").value == 0:
-		return
-	# todo: status
+func _attacked_player() -> void:
+	if get_tree() == null: return
 	
-# enemy attack script
-# enemy attacks when attack_id == their id
-func _attacked_player(attack_id):
+	var choices:Array[Choices] = [Choices.ATTACK, Choices.ATTACK]
+	if !buffed_last_turn: choices.append(Choices.BUFF)
+	if !debuffed_last_turn: choices.append(Choices.DEBUFF)
 	
-	if playing_animation == true:
-		return
+	var sentence = name
+	
+	match choices.pick_random():
+		Choices.ATTACK:
+			sentence += " attacks"
+			Events.damaged_player.emit(damage, IngameStats.DamageAnim.HIT)
+			damage += 3
+		Choices.BUFF:
+			sentence += " buffs itself"
+			Events.give_side_effects_to_enemies.emit(EffectData.STRENGTH, 3, self)
+		Choices.DEBUFF:
+			sentence += " debuffs you"
+			var debuff:EffectData = [EffectData.RUST, EffectData.BURN, EffectData.VULNERABILITY].pick_random()
+			Events.give_side_effects_to_player.emit(debuff, 3)
+	
 	playing_animation = true
-	if current_attack_choice  >= attacks.size() -1:
-		current_attack_choice = 0
-	else:
-		current_attack_choice += 1
-	var sentence = ""
-	
-	if attack_id != id:
-		return
-	
-	var damage =(attacks[current_attack_choice].get("damage")) * damage_multiplier
-	
-	sentence = name+ " use " + attacks[current_attack_choice].get("name")
-	
-
-	var all_effects = attacks[current_attack_choice]["status_effects"]
-	for effect in all_effects: 
-		Events.emit_signal("give_side_effects", effect)
-	if attacks[current_attack_choice]["buff"] != null:
-		var all_buffs = attacks[current_attack_choice]["buff"]
-		for effect in all_buffs: 
-			Events.emit_signal("give_side_effects_to_enemies", effect)
-	if get_tree() == null:
-		return
 	Events.emit_signal("update_display", sentence)
-	Events.emit_signal("damaged_player", damage, attacks[current_attack_choice].get("animation"), name)
-	
 
-
-
-	
-
-	

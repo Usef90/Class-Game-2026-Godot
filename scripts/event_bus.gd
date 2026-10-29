@@ -8,11 +8,9 @@ signal out_attack_area
 
 signal update_id
 
-signal check_victory_conditions
-
 ## if which is null then it damages all
-signal damaged_enemy(damage:int, which:Enemy)
-signal damaged_player(damage, animation, enemy_name)
+signal damaged_enemy(damage:int, anim:IngameStats.DamageAnim, which:Enemy)
+signal damaged_player(damage:int, anim:IngameStats.DamageAnim)
 
 signal reduce_energy_by(cost)
 signal total_energy(total)
@@ -31,6 +29,6 @@ signal id_effect_chosen(id, effect)
 
 signal update_display(sentence)
 
-signal show_status_text(text)
+signal show_status_text(status:EffectData)
 signal hide_status_text
 @warning_ignore_restore("unused_signal")

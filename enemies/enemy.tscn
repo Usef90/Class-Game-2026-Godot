@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cubqq5ioomlgc" path="res://sfx/enemydying.wav" id="2_a6vjd"]
 [ext_resource type="PackedScene" uid="uid://bkiarse6ln4qp" path="res://enemy_stats.tscn" id="3_4ytir"]
 [ext_resource type="Texture2D" uid="uid://cgq5juax45dja" path="res://Art/veganteacherUnaprove.png" id="3_07tka"]
-[ext_resource type="Script" uid="uid://c6buq5wvbn5nx" path="res://scripts/status.gd" id="3_orwns"]
+[ext_resource type="Script" uid="uid://c5kdacymtk51r" path="res://new_scripts/battle/enemy_effects.gd" id="5_07tka"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t1x0"]
 animations = [{
@@ -37,13 +37,14 @@ sprite_frames = SubResource("SpriteFrames_3t1x0")
 [node name="enemy_stats" parent="." unique_id=1287744910 instance=ExtResource("3_4ytir")]
 position = Vector2(79.00001, 120.00001)
 
-[node name="status" type="Node" parent="." unique_id=352096447]
-script = ExtResource("3_orwns")
-
 [node name="status_effect_viewer" type="HFlowContainer" parent="." unique_id=292000366]
 layout_mode = 0
-offset_left = -62.0
-offset_top = 102.0
-offset_right = 93.0
-offset_bottom = 173.0
+offset_left = 2.0
+offset_top = 218.0
+offset_right = 206.0
+offset_bottom = 263.0
 size_flags_stretch_ratio = 2.0
+
+[node name="enemy_effects" type="Node" parent="." unique_id=1998302262]
+script = ExtResource("5_07tka")
+metadata/_custom_type_script = "uid://c5kdacymtk51r"

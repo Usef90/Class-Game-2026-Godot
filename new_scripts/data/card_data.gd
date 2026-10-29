@@ -10,8 +10,17 @@ enum Target { PLAYER, ENEMY, ENEMIES }
 # where the number is the id of the card
 # should only be necessary if the card has a nonstandard effect
 # or if you need to specifically refer to it for some reason
-const SLICE:int = 0 # to start with it
-const ARMS_UP:int = 19 # to start with it
+# starting cards:
+const SLICE:int = 0
+const SEAR:int = 5
+const EXPAND:int = 6
+const ARMS_UP:int = 19
+# strength applies triply
+const TITAN_SMACK:int = 10
+# triples strength
+const ENRAGE:int = 14
+# triples enemy burn
+const INCINERATE:int = 15
 
 ## numerical id to identify the card. equal to its index in the CardData.CARDS array
 var id:int

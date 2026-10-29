@@ -21,7 +21,7 @@ func _ready() -> void:
 	$"../victory".visible = false
 	
 # this prevents the player to end turn during the enemy attack animations
-func playing_animation():
+func playing_animation(_a, _b):
 	animation_playing = true
 
 func stop_animation():
@@ -41,7 +41,7 @@ func _on_button_down() -> void:
 	enemy_id_turn +=1
 	if enemy_id_turn > total_enemies:
 		enemy_id_turn = 0
-	Events.emit_signal("enemies_turn", enemy_id_turn)
+	Events.enemies_turn.emit()
 
 	
 # buttons connections that I connected to this script cuz

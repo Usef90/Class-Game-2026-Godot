@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://drr3088qvw5dk" path="res://scenes/battle_ui.tscn" id="2_30t23"]
 [ext_resource type="Script" uid="uid://dnr14uiyajquj" path="res://new_scripts/battle/battle.gd" id="3_6b1qv"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="4_1rxmq"]
-[ext_resource type="PackedScene" uid="uid://ck6ewcnl8sg60" path="res://enemies/enemy.tscn" id="5_6b7v6"]
 
 [node name="battle" type="Node2D" unique_id=1916832371]
 script = ExtResource("3_6b1qv")
@@ -11,8 +10,6 @@ script = ExtResource("3_6b1qv")
 [node name="background2" type="Sprite2D" parent="." unique_id=1796574471]
 position = Vector2(638, 364)
 scale = Vector2(2.0218751, 2.0218751)
-
-[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
 
 [node name="player" parent="." unique_id=294404824 instance=ExtResource("4_1rxmq")]
 unique_name_in_owner = true
@@ -29,9 +26,6 @@ offset_right = 1227.0
 offset_bottom = 459.0
 alignment = 1
 
-[node name="Mango Mustard" parent="enemies" unique_id=708042470 instance=ExtResource("5_6b7v6")]
-layout_mode = 2
-attacks_name = Array[String](["evil_scientist_attack", "punch", "flat_earth", "kick", "nuclear_pizza"])
-setted_HP = 6.0
+[node name="battle_ui" parent="." unique_id=890284133 instance=ExtResource("2_30t23")]
 
 [node name="background" type="Sprite2D" parent="." unique_id=1824490579]

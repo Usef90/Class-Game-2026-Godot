@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnvuktleh86u6"
+path="res://.godot/imported/Oxidise.wav-98e6d04d003930e4b7d947a5a7857126.sample"
+
+[deps]
+
+source_file="res://Sound Effects NEW/Oxidise.wav"
+dest_files=["res://.godot/imported/Oxidise.wav-98e6d04d003930e4b7d947a5a7857126.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
