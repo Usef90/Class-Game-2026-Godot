@@ -21,4 +21,3 @@ func _draw() -> void:
 func _on_button_down() -> void:
 	Globals.level = index
 	get_tree().change_scene_to_file("res://scenes/final.tscn")
-

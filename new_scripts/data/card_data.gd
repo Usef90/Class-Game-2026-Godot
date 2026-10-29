@@ -129,6 +129,8 @@ func with_player_effect(effect:EffectData, value:int=0) -> CardData:
 	effect_targets.append(Target.PLAYER)
 	return self
 
+ 
+func repeat(_repeats:int) -> CardData: repeats = _repeats; return self
 func with_repeats(_repeats:int) -> CardData: repeats = _repeats; return self
 
 func with_exhaust() -> CardData: exhaust = true; return self
