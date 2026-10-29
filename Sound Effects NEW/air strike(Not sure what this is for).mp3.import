@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3rc7onubmg5v"
+path="res://.godot/imported/air strike(Not sure what this is for).mp3-30d220b4caff65e95f3c962d9e9a033d.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects NEW/air strike(Not sure what this is for).mp3"
+dest_files=["res://.godot/imported/air strike(Not sure what this is for).mp3-30d220b4caff65e95f3c962d9e9a033d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
