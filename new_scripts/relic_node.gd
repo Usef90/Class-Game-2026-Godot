@@ -1,5 +1,5 @@
 class_name RelicNode
-extends Node2D
+extends TextureRect
 
 var data:RelicData
 
@@ -9,5 +9,5 @@ static func create(_data:RelicData) -> RelicNode:
 	return relic
 
 func _ready() -> void:
-	pass
+	texture = data.image
 

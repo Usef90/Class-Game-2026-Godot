@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfpuw3fyrlbeq" path="res://new_scripts/card_node.gd" id="1_psnm6"]
 [ext_resource type="Texture2D" uid="uid://qju8bivensgw" path="res://Art/CardTemplateTuff.png" id="2_i0hap"]
 [ext_resource type="Texture2D" uid="uid://bpgg4yf20b7g8" path="res://Art/AuraFarm.png" id="3_k4uei"]
+[ext_resource type="Texture2D" uid="uid://cj37bblbpkw7g" path="res://Art/IconsNEW/Number0.png" id="4_i0hap"]
 
 [node name="card" type="Control" unique_id=515318876]
 layout_mode = 3
@@ -46,11 +47,10 @@ text = "weaken enemy
 "
 autowrap_mode = 2
 
-[node name="cost" type="Label" parent="." unique_id=2130168746]
+[node name="cost" type="TextureRect" parent="." unique_id=142260642]
 layout_mode = 0
-offset_left = 9.0
-offset_top = -10.0
-offset_right = 209.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 40
-text = "9"
+offset_left = 5.2575517
+offset_top = 7.0100694
+offset_right = 37.257553
+offset_bottom = 39.01007
+texture = ExtResource("4_i0hap")

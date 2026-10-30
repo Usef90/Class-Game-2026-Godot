@@ -15,7 +15,9 @@ var player_damage: float = 1
 var player_hitpoint_recovery: float = 0
 
 var cards:Array[CardData] = []
-var upgrades: Array = []
+var relics:Array[RelicData] = []
 
 var player_gold: int = 20
+
+var spare_battery_count:int = 0
 

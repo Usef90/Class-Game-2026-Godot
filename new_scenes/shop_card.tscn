@@ -18,6 +18,7 @@ metadata/_custom_type_script = "uid://bmev8xs1vkafb"
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 350.0
+mouse_filter = 2
 
 [node name="buy_button" type="Button" parent="." unique_id=956547880]
 layout_mode = 0

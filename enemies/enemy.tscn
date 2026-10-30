@@ -25,6 +25,7 @@ offset_right = 207.0
 offset_bottom = 228.0
 size_flags_vertical = 4
 script = ExtResource("1_2sr7e")
+death_particle = "w"
 enemy_dying = ExtResource("2_a6vjd")
 attacks_name = Array[String](["kick", "punch", "poison"])
 metadata/_custom_type_script = "uid://c4kqr3abi6wjh"

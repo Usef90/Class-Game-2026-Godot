@@ -26,10 +26,9 @@ func _take_damage(damage: int, _anim:IngameStats.DamageAnim, which:Enemy) -> voi
 	$Label.text = str(snapped($HP.value, 0.01)) + "/" +str(int($HP.max_value))
 	if $HP.value <= 0:
 		# these were different for some reason so im keeping them different but we should probably change it
-		if which == null:
-			Explosions.spawn(get_parent().global_position, null, get_parent().death_particle)
-		else:
-			Explosions.spawn(get_parent().global_position)
-			AudioManager.play_oneshot(get_parent().enemy_dying)
+		Explosions.spawn(get_parent().global_position)
+		AudioManager.play_oneshot(get_parent().enemy_dying)
 		get_parent().get_parent().remove_child(get_parent())
 		get_parent().queue_free()
+		PlayerStats.player_gold += 100
+

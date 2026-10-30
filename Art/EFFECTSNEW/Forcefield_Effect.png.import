@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgix88py1svcm"
-path="res://.godot/imported/Robot head with braces thing idk.png-beb186eaff43d44eb5ca1fd1d09a9a2f.ctex"
+uid="uid://dqfsxr20wuqr3"
+path="res://.godot/imported/Forcefield_Effect.png-b6b7ed8fd460deb083e14726e155f479.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://New Art Folder/Robot head with braces thing idk.png"
-dest_files=["res://.godot/imported/Robot head with braces thing idk.png-beb186eaff43d44eb5ca1fd1d09a9a2f.ctex"]
+source_file="res://Art/EFFECTSNEW/Forcefield_Effect.png"
+dest_files=["res://.godot/imported/Forcefield_Effect.png-b6b7ed8fd460deb083e14726e155f479.ctex"]
 
 [params]
 

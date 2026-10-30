@@ -12,9 +12,6 @@ enum DamageAnim { HIT, RUST, BURN }
 
 var enemy_thats_attacking: String
 
-var def_stats: float = 0
-const MAX_DEF: float = 20
-
 var damage_multiplier: float = 1
 var damage_sfx: AudioStream = preload("res://sfx/player dmagae.mp3")
 
@@ -34,7 +31,7 @@ func _ready() -> void:
 # plays enemy attack animations
 func _on_animations_animation_finished() -> void:
 	animation_player.visible = false
-	$HP.value -= incoming_damage * ((MAX_DEF - def_stats)/MAX_DEF)
+	$HP.value -= incoming_damage
 	$Label.text = str(snapped($HP.value, 0.01)) + "/" +str(int($HP.max_value))
 	
 	if $HP.value<=0:
@@ -53,4 +50,8 @@ func _take_damage(damage: float, damage_anim:DamageAnim) -> void:
 	match damage_anim:
 		#DamageAnim.RUST: animation_player.play(&"rust")
 		_: animation_player.play(&"no_animation")
+
+func _heal(amount: float) -> void:
+	$HP.value = min(amount, $HP.max_value)
+	$Label.text = str(snapped($HP.value, 0.01)) + "/" +str(int($HP.max_value))
 

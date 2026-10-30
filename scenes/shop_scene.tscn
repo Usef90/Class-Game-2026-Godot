@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://86q275l1hhq0"]
 
 [ext_resource type="Script" uid="uid://w1rd75tw6ylc" path="res://new_scripts/shop/shop.gd" id="1_xduvy"]
+[ext_resource type="Texture2D" uid="uid://drfgpi8i8t7yj" path="res://Art/BACKGROUNDSNEW/shop.png" id="2_p7evi"]
 
 [node name="ShopScene" type="Control" unique_id=249197523]
 layout_mode = 3
@@ -15,16 +16,17 @@ script = ExtResource("1_xduvy")
 layout_mode = 0
 offset_right = 1283.5555
 offset_bottom = 722.0
+texture = ExtResource("2_p7evi")
 
 [node name="TopFridge" type="HBoxContainer" parent="." unique_id=696781289]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.94400007
-offset_left = 687.0
-offset_top = 5.0
-offset_right = -443.0
-offset_bottom = -474.68005
+offset_left = 701.0
+offset_top = 114.0
+offset_right = -429.0
+offset_bottom = -365.68005
 grow_horizontal = 2
 theme_override_constants/separation = 144
 

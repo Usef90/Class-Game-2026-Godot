@@ -52,6 +52,10 @@ func act() -> void:
 	for repeat in data.repeats:
 		var total_damage:int = data.damage
 		if total_damage != 0:
+			PlayerStats.spare_battery_count += 1
+			if PlayerStats.spare_battery_count >= 12:
+				PlayerStats.spare_battery_count -= 12
+				battle.player_stats._heal(12)
 			var strength:int = battle.player_effects.get_value(EffectData.STRENGTH) \
 				+ battle.player_effects.get_value(EffectData.TEMP_STRENGTH)
 			if data.id == CardData.TITAN_SMACK: total_damage += 6*strength

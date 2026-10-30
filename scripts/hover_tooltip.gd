@@ -11,12 +11,12 @@ const POP_DURATION := 0.12
 const GAP_FROM_TARGET := 14.0
 
 func _ready() -> void:
-	#add_child(panel)
-	pass
+	add_child(panel)
+	panel.visible = false
 
 func setup(target:Control, title_text:String, desc_text:String) -> void:
 	target.mouse_entered.connect(func():show_at(target, title_text, desc_text))
-	target.mouse_exited.connect(func(): HoverTooltip.hide_tooltip(target))
+	target.mouse_exited.connect(func(): hide_tooltip(target))
 
 func show_at(target: Control, title_text: String, desc_text: String) -> void:
 	if target not in targets:
@@ -32,13 +32,13 @@ func show_at(target: Control, title_text: String, desc_text: String) -> void:
 	_reposition(target)
 	if tween: tween.kill()
 	tween = create_tween()
-	tween.set_parallel(true) \
-		.tween_property(panel, "modulate:a", 1.0, POP_DURATION) \
-		.tween_property(panel, "scale", Vector2.ONE, POP_DURATION) \
+	tween.set_parallel(true)
+	tween.tween_property(panel, "modulate:a", 1.0, POP_DURATION)
+	tween.tween_property(panel, "scale", Vector2.ONE, POP_DURATION) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func hide_tooltip(target: Control) -> void:
-	if target not in targets:
+	if target in targets:
 		targets.erase(target)
 	
 	if len(targets) == 0:

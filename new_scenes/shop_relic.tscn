@@ -7,19 +7,28 @@
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 150.0
-offset_bottom = 200.0
+offset_right = 205.0
+offset_bottom = 235.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ntibs")
 metadata/_custom_type_script = "uid://2jkb6ag5mu55"
 
 [node name="relic" parent="." unique_id=519949114 instance=ExtResource("2_c4prd")]
+layout_mode = 1
+mouse_filter = 2
 
 [node name="buy_button" type="Button" parent="." unique_id=956547880]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 147.0
-offset_right = 114.0
-offset_bottom = 183.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.5
+offset_top = -5.0
+offset_right = 41.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Price"

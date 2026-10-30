@@ -13,6 +13,7 @@ offset_top = 69.0
 offset_right = 117.0
 offset_bottom = 96.0
 theme_override_styles/background = ExtResource("2_5dqri")
+max_value = 70.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="." unique_id=396725463]

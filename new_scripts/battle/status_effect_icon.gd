@@ -12,6 +12,7 @@ var value:int
 func _ready() -> void:
 	texture = effect.icon
 	$value.text = str(value)
+	$value.visible = !effect.valueless
 
 func _on_mouse_entered() -> void:
 	is_hovered = true

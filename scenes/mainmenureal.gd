@@ -23,7 +23,7 @@ func _on_button_pressed() -> void:
 	for _i in 4: PlayerStats.cards.append(CardData.CARDS[CardData.ARMS_UP])
 	PlayerStats.cards.append(CardData.CARDS[CardData.SEAR])
 	PlayerStats.cards.append(CardData.CARDS[CardData.EXPAND])
-	PlayerStats.upgrades = []
+	PlayerStats.relics.clear()
 	Globals.level = Globals.START_LEVEL
 	PlayerStats.player_gold = 20
 	TransitionManager.play_transition("res://scenes/level_select.tscn")

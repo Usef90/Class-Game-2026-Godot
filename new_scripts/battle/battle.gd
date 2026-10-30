@@ -37,6 +37,9 @@ func _ready() -> void:
 	cards_can_spawn = PlayerStats.cards.duplicate()
 	ui.cards.child_order_changed.connect(_update_card_ids)
 
+	if RelicData.KNUCKLEBUSTERS in PlayerStats.relics:
+		Events.give_side_effects_to_player.emit(EffectData.STRENGTH, 1)
+	
 	num_enemies = 1
 	if randi_range(0,9) < 3:
 		num_enemies += 1
@@ -109,7 +112,6 @@ func _check_victory():
 	if %enemies.get_child_count() == 0 and !victory and !ending_of_story:
 		Globals.achievements[achievement_will_gain] = true
 		victory = true
-		PlayerStats.player_gold += victory_gold
 		ui.victory.show()
 		ui.victory.get_node("stuff you gain").text = "Gain: " + str(victory_gold) + " gold" + "
 		Total gold: " + str(PlayerStats.player_gold)  

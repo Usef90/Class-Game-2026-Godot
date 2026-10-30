@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://c4mrjb5bkd3tj"]
 
 [ext_resource type="Script" uid="uid://1416s64brh71" path="res://new_scripts/relic_node.gd" id="1_savt3"]
-[ext_resource type="Texture2D" uid="uid://7r5hngu5s523" path="res://New Art Folder/temp/relic.png" id="2_qm7ig"]
 
-[node name="relic" type="Node2D" unique_id=519949114]
+[node name="relic" type="TextureRect" unique_id=1683033057]
+physics_interpolation_mode = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
 script = ExtResource("1_savt3")
 metadata/_custom_type_script = "uid://1416s64brh71"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1285769448]
-scale = Vector2(2, 2)
-texture = ExtResource("2_qm7ig")
